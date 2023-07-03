@@ -1,0 +1,260 @@
+//Class Names
+$base-class-name: 'base';
+$theme-class-name: 'theme';
+
+$offset-shadow-width: 0px;
+$offset-shadow-color: #FFF;
+$offset-shadow: 0 0 0 $offset-shadow-width $offset-shadow-color;
+$base-shadow: 0 0 #0000;
+
+$base-colors: (
+	100: #f3f4f6,
+	200: #d1d5db,
+	300: #6b7280,
+	400: #374151,
+	500: #111827
+);
+
+$theme-colors: (
+	100: #fef9c3,
+	200: #fde047,
+	300: #eab308,
+	400: #a16207,
+	500: #713f12
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+
+/*******************
+* THEME COLORS
+******************/
+@mixin generateColorClasses($colors, $class-name) {
+    @each $key, $color in $colors {
+        .border-#{$class-name}-#{$key} {
+          border-color: #{$color};
+        }
+    }
+    @each $key, $color in $colors {
+        .text-#{$class-name}-#{$key} {
+            color: #{$color};
+        }
+    }
+    @each $key, $color in $colors {
+        .bg-#{$class-name}-#{$key} {
+            --bg-opacity: 1;
+            background-color: rgba($color, var(--bg-opacity));
+        }
+    }
+}
+@include generateColorClasses($theme-colors, $theme-class-name);
+
+/*******************
+* FONT SIZING
+******************/
+@for $i from 1 through 4 {
+	.text-sm-#{$i} {
+		$size: 1em - calc($i / 8);
+		font-size: $size;
+	}
+}
+
+
+
+
+
+// @mixin printBoxShadowColor($class-name, $key, $color) {
+// 	.focus\:ring-#{$class-name}-#{$key}:focus {
+// 		--shadow-color: #{$color};
+// 	}
+// 	.hover\:ring-#{$class-name}-#{$key}:hover {
+// 		--shadow-color: #{$color};
+// 	}
+// }
+
+// .hover\:text-white:hover {
+// 	color: #fff;
+// }
+// .hover\:bg-white:hover {
+// 	background-color: #fff;
+// }
+// .hover\:text-black:hover {
+// 	color: #000;
+// }
+// .hover\:bg-black:hover {
+// 	background-color: #000;
+// }
+// .focus\:text-white:focus {
+// 	color: #fff;
+// }
+// .focus\:bg-white:focus {
+// 	background-color: #fff;
+// }
+// .focus\:text-black:focus {
+// 	color: #000;
+// }
+// .focus\:bg-black:focus {
+// 	background-color: #000;
+// }
+
+// @mixin printBoxShadow() {
+// 	@for $i from 1 through 5 {
+// 		$ring-shadow: 0 0 0 #{$i}px var(--shadow-color); 
+// 		.focus\:ring-#{$i}:focus {
+// 			box-shadow: $offset-shadow, $ring-shadow, $base-shadow;
+// 		}
+// 		.hover\:ring-#{$i}:hover {
+// 			box-shadow: $offset-shadow, $ring-shadow, $base-shadow;
+// 		}
+// 	} 
+// }
+
+
+// @each $key, $color in $base-colors {
+// 	@include printColorStyles($base-class-name, $key, $color);
+// 	@include printBoxShadowColor($base-class-name, $key, $color);
+// }
+
+
+// @each $key, $color in $theme-colors {
+// 	@include printColorStyles($theme-class-name, $key, $color);
+// 	@include printBoxShadowColor($theme-class-name, $key, $color);
+// }
+
+// @include printBoxShadow();
+
+
+
+// @for $i from 0 through 5 {
+// 	.border-size-#{$i} {
+// 		border-width: #{$i}px;
+// 		border-style: solid;
+// 	}
+// }
+
+
+// .outline-none {
+//     outline: 2px solid transparent;
+//     outline-offset: 2px;
+// }
+
+// .btn-primary {
+// 	background-color: map-get($theme-colors, 500);
+// 	border: 0;
+// 	&:hover {
+// 		background-color: map-get($theme-colors, 600);
+// 	}
+// }
+
+
+// @for $i from 1 through 9 {
+// 	.fw-#{$i}00 {
+// 		font-weight: #{$i * 100};
+// 	}
+
+// 	.bg-opacity-#{$i} {
+// 		--bg-opacity: #{$i * .1};
+// 	}
+// }
+
+// hr {
+// 	opacity: 1;
+// }
+
+// @import 'node_modules/bootstrap/scss/mixins/_utilities.scss';
+// @import 'node_modules/bootstrap/scss/_variables.scss';
+
+// $spacer: 1rem;
+// $spacers: (
+//   0: 0,
+//   1: ($spacer * .25),
+//   2: ($spacer * .5),
+//   3: $spacer,
+//   4: ($spacer * 1.5),
+//   5: ($spacer * 3)
+// );
+// $mySpacers: (
+//   000: 0rem,
+//   025: .25rem,
+//   100: 1rem,
+//   125: 1.25rem,
+//   200: 2rem,
+//   300: 3rem,
+//   350: 3.5rem,
+//   400: 4rem,
+//   450: 4.5rem,
+//   500: 5rem,
+//   550: 5.5rem,
+//   600: 6rem,
+//   650: 6.5rem,
+//   700: 7rem,
+//   750: 7.5rem,
+//   800: 8rem,
+//   850: 8.5rem,
+//   900: 9rem,
+//   950: 9.5rem
+// );
+
+// $mySpacers: ();
+// @for $i from 0 through 20 {
+//   $rem: $i * 0.25;
+//   $key: $i * 25;  // Adjusted this line
+//   $mySpacers: map-merge($mySpacers, ($key: $rem + rem));
+// }
+
+// $spacers: map-merge($mySpacers, $spacers);
+
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px
+// );
+
+// @function str-pad($number, $length) {
+//   $str: "#{$number}";
+//   @while str-length($str) < $length {
+//     $str: "0#{$str}";
+//   }
+//   @return $str;
+// }
+
+// @mixin generate-paddings($spacers) {
+//     @each $breakpoint in map-keys($grid-breakpoints) {
+//       @each $key, $value in $spacers {
+//         $paddedKey: str-pad($key, 3); // Pad the key to 3 digits
+//         .p-\:#{$paddedKey} {
+//           padding: $value;
+//         }
+//         .pt-#{$breakpoint}-\:#{$paddedKey} {
+//           padding-top: $value;
+//         }
+//         .pr-#{$breakpoint}-\:#{$paddedKey} {
+//           padding-right: $value;
+//         }
+//         .pb-#{$breakpoint}-\:#{$paddedKey} {
+//           padding-bottom: $value;
+//         }
+//         .pl-#{$breakpoint}-\:#{$paddedKey} {
+//           padding-left: $value;
+//         }
+//       }
+//     }
+//   }
+
+// @include generate-paddings($spacers);
+
+
+
+
+  
+
+
+// @import 'node_modules/bootstrap/scss/bootstrap';

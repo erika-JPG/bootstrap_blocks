@@ -1,0 +1,88 @@
+/*******************
+* THEME COLORS
+******************/
+.border-theme-100 {
+  border-color: #fef9c3;
+}
+
+.border-theme-200 {
+  border-color: #fde047;
+}
+
+.border-theme-300 {
+  border-color: #eab308;
+}
+
+.border-theme-400 {
+  border-color: #a16207;
+}
+
+.border-theme-500 {
+  border-color: #713f12;
+}
+
+.text-theme-100 {
+  color: #fef9c3;
+}
+
+.text-theme-200 {
+  color: #fde047;
+}
+
+.text-theme-300 {
+  color: #eab308;
+}
+
+.text-theme-400 {
+  color: #a16207;
+}
+
+.text-theme-500 {
+  color: #713f12;
+}
+
+.bg-theme-100 {
+  --bg-opacity: 1;
+  background-color: rgba(254, 249, 195, var(--bg-opacity));
+}
+
+.bg-theme-200 {
+  --bg-opacity: 1;
+  background-color: rgba(253, 224, 71, var(--bg-opacity));
+}
+
+.bg-theme-300 {
+  --bg-opacity: 1;
+  background-color: rgba(234, 179, 8, var(--bg-opacity));
+}
+
+.bg-theme-400 {
+  --bg-opacity: 1;
+  background-color: rgba(161, 98, 7, var(--bg-opacity));
+}
+
+.bg-theme-500 {
+  --bg-opacity: 1;
+  background-color: rgba(113, 63, 18, var(--bg-opacity));
+}
+
+/*******************
+* FONT SIZING
+******************/
+.text-sm-1 {
+  font-size: 0.875em;
+}
+
+.text-sm-2 {
+  font-size: 0.75em;
+}
+
+.text-sm-3 {
+  font-size: 0.625em;
+}
+
+.text-sm-4 {
+  font-size: 0.5em;
+}
+
+/*# sourceMappingURL=global.css.map */
