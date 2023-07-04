@@ -66,6 +66,56 @@
   background-color: rgba(113, 63, 18, var(--bg-opacity));
 }
 
+.link-theme-100 {
+  color: #fef9c3;
+  -webkit-text-decoration-color: #fef9c3;
+  text-decoration-color: #fef9c3;
+}
+
+.link-theme-100:hover, .link-theme-100:focus {
+  color: #fffef5;
+}
+
+.link-theme-200 {
+  color: #fde047;
+  -webkit-text-decoration-color: #fde047;
+  text-decoration-color: #fde047;
+}
+
+.link-theme-200:hover, .link-theme-200:focus {
+  color: #fee979;
+}
+
+.link-theme-300 {
+  color: #eab308;
+  -webkit-text-decoration-color: #eab308;
+  text-decoration-color: #eab308;
+}
+
+.link-theme-300:hover, .link-theme-300:focus {
+  color: #f8c72d;
+}
+
+.link-theme-400 {
+  color: #a16207;
+  -webkit-text-decoration-color: #a16207;
+  text-decoration-color: #a16207;
+}
+
+.link-theme-400:hover, .link-theme-400:focus {
+  color: #d28009;
+}
+
+.link-theme-500 {
+  color: #713f12;
+  -webkit-text-decoration-color: #713f12;
+  text-decoration-color: #713f12;
+}
+
+.link-theme-500:hover, .link-theme-500:focus {
+  color: #9d5819;
+}
+
 /*******************
 * FONT SIZING
 ******************/
@@ -83,6 +133,130 @@
 
 .text-sm-4 {
   font-size: 0.5em;
+}
+
+/*******************
+* MAX WIDTH
+******************/
+.w-20 {
+  max-width: 20%;
+}
+
+.w-40 {
+  max-width: 40%;
+}
+
+.w-60 {
+  max-width: 60%;
+}
+
+.w-80 {
+  max-width: 80%;
+}
+
+/*******************
+* MAX HEIGHT
+******************/
+.w-20 {
+  max-height: 20%;
+}
+
+.w-40 {
+  max-height: 40%;
+}
+
+.w-60 {
+  max-height: 60%;
+}
+
+.w-80 {
+  max-height: 80%;
+}
+
+/*******************
+* OPACITY
+******************/
+.opacity-20 {
+  opacity: 20%;
+}
+
+.opacity-40 {
+  opacity: 40%;
+}
+
+.opacity-60 {
+  opacity: 60%;
+}
+
+.opacity-80 {
+  opacity: 80%;
+}
+
+/*******************
+* POSITION
+******************/
+.top-20 {
+  top: calc(20%);
+}
+
+.top-40 {
+  top: calc(40%);
+}
+
+.top-60 {
+  top: calc(60%);
+}
+
+.top-80 {
+  top: calc(80%);
+}
+
+.end-20 {
+  right: calc(20%);
+}
+
+.end-40 {
+  right: calc(40%);
+}
+
+.end-60 {
+  right: calc(60%);
+}
+
+.end-80 {
+  right: calc(80%);
+}
+
+.bottom-20 {
+  bottom: calc(20%);
+}
+
+.bottom-40 {
+  bottom: calc(40%);
+}
+
+.bottom-60 {
+  bottom: calc(60%);
+}
+
+.bottom-80 {
+  bottom: calc(80%);
+}
+
+.start-20 {
+  left: calc(20%);
+}
+
+.start-40 {
+  left: calc(40%);
+}
+
+.start-60 {
+  left: calc(60%);
+}
+
+.start-80 {
+  left: calc(80%);
 }
 
 /*# sourceMappingURL=global.css.map */

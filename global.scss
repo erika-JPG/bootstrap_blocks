@@ -31,10 +31,16 @@ $grid-breakpoints: (
   xl: 1200px
 );
 
-
+$positions:( 
+    'top': 'top', 
+    'end': 'right',
+    'bottom': 'bottom',
+    'start': 'left'
+);
 /*******************
 * THEME COLORS
 ******************/
+
 @mixin generateColorClasses($colors, $class-name) {
     @each $key, $color in $colors {
         .border-#{$class-name}-#{$key} {
@@ -52,20 +58,87 @@ $grid-breakpoints: (
             background-color: rgba($color, var(--bg-opacity));
         }
     }
+    @each $key, $color in $colors {
+        .link-#{$class-name}-#{$key} {
+            color: #{$color};
+            -webkit-text-decoration-color: #{$color};
+            text-decoration-color: #{$color};
+        }
+        .link-#{$class-name}-#{$key}:hover, .link-#{$class-name}-#{$key}:focus {
+            $light: lighten($color, 10%);
+            color:#{$light}
+        } 
+    }
 }
+
 @include generateColorClasses($theme-colors, $theme-class-name);
 
+
 /*******************
-* FONT SIZING
+* SIZING
 ******************/
+/*Width*/
+@for $i from 1 through 4 {
+    .w-#{calc($i * 20)} {
+        $size: 0% + calc($i * 20);
+        width: $size;
+    }
+} 
+
+/*Max Width*/
+@for $i from 1 through 4 {
+    .mw-#{calc($i * 20)} {
+        $size: 0% + calc($i * 20);
+        max-width: $size;
+    }
+} 
+
+/*Height*/
+@for $i from 1 through 4 {
+    .h-#{calc($i * 20)} {
+        $size: 0% + calc($i * 20);
+        max-height: $size;
+    }
+} 
+
+/*Max Height*/
+@for $i from 1 through 4 {
+    .mh-#{calc($i * 20)} {
+        $size: 0% + calc($i * 20);
+        max-height: $size;
+    }
+} 
+
+/*Font Size*/
 @for $i from 1 through 4 {
 	.text-sm-#{$i} {
 		$size: 1em - calc($i / 8);
 		font-size: $size;
 	}
 }
+/*******************
+* OPACITY
+******************/
+@for $i from 1 through 4 {
+    .opacity-#{calc($i * 20)} {
+        $opacity: 0% + calc($i * 20);
+        opacity: $opacity;
+    }
+} 
+/*******************
+* POSITION
+******************/
+@mixin extendedPosition($property, $value) {
+    @for $i from 1 through 4 {
+        .#{$property}-#{$i * 20} {
+            #{$value}: 0% + calc(#{$i * 20});
+        }
+    }
+}
 
-
+@each $key, $position in $positions {
+    @include extendedPosition($key, $position);
+}
 
 
 
