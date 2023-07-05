@@ -6,6 +6,7 @@ $offset-shadow-width: 0px;
 $offset-shadow-color: #FFF;
 $offset-shadow: 0 0 0 $offset-shadow-width $offset-shadow-color;
 $base-shadow: 0 0 #0000;
+$font-exclusion: 300, 400, 600, 700;
 
 $base-colors: (
 	100: #f3f4f6,
@@ -38,26 +39,50 @@ $positions:(
     'start': 'left'
 );
 /*******************
-* THEME COLORS
+* COLORS
 ******************/
-
 @mixin generateColorClasses($colors, $class-name) {
+    // Border Color + :hover + :focus
     @each $key, $color in $colors {
         .border-#{$class-name}-#{$key} {
           border-color: #{$color};
         }
+        .hover\:border-#{$class-name}-#{$key}:hover {
+            border-color: #{$color};
+        }
+        .focus\:border-#{$class-name}-#{$key}:focus {
+            border-color: #{$color};
+        }
     }
+
+    //Text Color + :hover + :focus
     @each $key, $color in $colors {
         .text-#{$class-name}-#{$key} {
             color: #{$color};
         }
+        .hover\:text-#{$class-name}-#{$key}:hover {
+            color: #{$color};
+        }
+        .focus\:text-#{$class-name}-#{$key}:focus {
+            color: #{$color};
+        }
     }
+  
+    // Background Color + :hover + :focus
     @each $key, $color in $colors {
         .bg-#{$class-name}-#{$key} {
             --bg-opacity: 1;
             background-color: rgba($color, var(--bg-opacity));
         }
+        .hover\:bg-#{$class-name}-#{$key}:hover {
+            background-color: #{$color};		
+        }
+        .focus\:bg-#{$class-name}-#{$key}:focus {
+            background-color: #{$color};		
+        }
     }
+
+    // Link Color + :hover
     @each $key, $color in $colors {
         .link-#{$class-name}-#{$key} {
             color: #{$color};
@@ -69,10 +94,31 @@ $positions:(
             color:#{$light}
         } 
     }
+    // Shadow color as --shadow-color
+    @each $key, $color in $colors {
+        .focus\:shadow-#{$class-name}-#{$key}:focus {
+            --shadow-color: #{$color};
+        }
+        .hover\:shadow-#{$class-name}-#{$key}:hover {
+            --shadow-color: #{$color};
+        }
+        //Box Shadow Spread Radius
+        @for $i from 1 through 5 {
+            $ring-shadow: 0 0 0 #{$i}px var(--shadow-color); 
+            .focus\:shadow-#{$i}:focus {
+                box-shadow: $offset-shadow, $ring-shadow, $base-shadow;
+            }
+            .hover\:shadow-#{$i}:hover {
+            	box-shadow: $offset-shadow, $ring-shadow, $base-shadow;
+            }
+        } 
+    }
+
+ 
 }
 
 @include generateColorClasses($theme-colors, $theme-class-name);
-
+@include generateColorClasses($base-colors, $base-class-name);
 
 /*******************
 * SIZING
@@ -131,7 +177,7 @@ $positions:(
 @mixin extendedPosition($property, $value) {
     @for $i from 1 through 4 {
         .#{$property}-#{$i * 20} {
-            #{$value}: 0% + calc(#{$i * 20});
+            #{$value}: calc(#{$i * 20}%);
         }
     }
 }
@@ -140,194 +186,95 @@ $positions:(
     @include extendedPosition($key, $position);
 }
 
+/*******************
+* HOVER AND FOCUSED STATES
+******************/
+
+.hover\:text-white:hover {
+	color: #fff;
+}
+.hover\:bg-white:hover {
+	background-color: #fff;
+}
+.hover\:text-black:hover {
+	color: #000;
+}
+.hover\:bg-black:hover {
+	background-color: #000;
+}
+.focus\:text-white:focus {
+	color: #fff;
+}
+.focus\:bg-white:focus {
+	background-color: #fff;
+}
+.focus\:text-black:focus {
+	color: #000;
+}
+.focus\:bg-black:focus {
+	background-color: #000;
+}
+
+/*******************
+* OUTLINE
+******************/
+.outline-0 {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
 
 
-// @mixin printBoxShadowColor($class-name, $key, $color) {
-// 	.focus\:ring-#{$class-name}-#{$key}:focus {
-// 		--shadow-color: #{$color};
-// 	}
-// 	.hover\:ring-#{$class-name}-#{$key}:hover {
-// 		--shadow-color: #{$color};
-// 	}
-// }
+/*******************
+* THEME BUTTON
+******************/
+@mixin set-button-colors($bg-color) {
+  background-color: $bg-color;
 
-// .hover\:text-white:hover {
-// 	color: #fff;
-// }
-// .hover\:bg-white:hover {
-// 	background-color: #fff;
-// }
-// .hover\:text-black:hover {
-// 	color: #000;
-// }
-// .hover\:bg-black:hover {
-// 	background-color: #000;
-// }
-// .focus\:text-white:focus {
-// 	color: #fff;
-// }
-// .focus\:bg-white:focus {
-// 	background-color: #fff;
-// }
-// .focus\:text-black:focus {
-// 	color: #000;
-// }
-// .focus\:bg-black:focus {
-// 	background-color: #000;
-// }
+  // Set the text color based on the lightness of the background color
+  @if (lightness($bg-color) > 50) {
+    color: #000; // Light background, return dark text color
+  } @else {
+    color: #fff; // Dark background, return light text color
+  }
 
-// @mixin printBoxShadow() {
-// 	@for $i from 1 through 5 {
-// 		$ring-shadow: 0 0 0 #{$i}px var(--shadow-color); 
-// 		.focus\:ring-#{$i}:focus {
-// 			box-shadow: $offset-shadow, $ring-shadow, $base-shadow;
-// 		}
-// 		.hover\:ring-#{$i}:hover {
-// 			box-shadow: $offset-shadow, $ring-shadow, $base-shadow;
-// 		}
-// 	} 
-// }
+  // Apply the hover effect
+  &:hover {
+    $hover-color: lighten($bg-color, 10%);
+    background-color: $hover-color;
 
+    // Set the text color on hover based on the lightness of the hover background color
+    @if (lightness($hover-color) > 50) {
+      color: #000; // Light background, return dark text color
+    } @else {
+      color: #fff; // Dark background, return light text color
+    }
+  }
+}
 
-// @each $key, $color in $base-colors {
-// 	@include printColorStyles($base-class-name, $key, $color);
-// 	@include printBoxShadowColor($base-class-name, $key, $color);
-// }
+// Iterate over the map to generate the color rules for each key
+@each $key, $color in $theme-colors {
+  // Generate the CSS rules for this key
+  .btn-theme-#{$key} {
+    @include set-button-colors($color);
+    border: 0;
+  }
+}
+@each $key, $color in $base-colors {
+  // Generate the CSS rules for this key
+  .btn-base-#{$key} {
+    @include set-button-colors($color);
+    border: 0;
+  }
+}
 
-
-// @each $key, $color in $theme-colors {
-// 	@include printColorStyles($theme-class-name, $key, $color);
-// 	@include printBoxShadowColor($theme-class-name, $key, $color);
-// }
-
-// @include printBoxShadow();
-
-
-
-// @for $i from 0 through 5 {
-// 	.border-size-#{$i} {
-// 		border-width: #{$i}px;
-// 		border-style: solid;
-// 	}
-// }
-
-
-// .outline-none {
-//     outline: 2px solid transparent;
-//     outline-offset: 2px;
-// }
-
-// .btn-primary {
-// 	background-color: map-get($theme-colors, 500);
-// 	border: 0;
-// 	&:hover {
-// 		background-color: map-get($theme-colors, 600);
-// 	}
-// }
-
-
-// @for $i from 1 through 9 {
-// 	.fw-#{$i}00 {
-// 		font-weight: #{$i * 100};
-// 	}
-
-// 	.bg-opacity-#{$i} {
-// 		--bg-opacity: #{$i * .1};
-// 	}
-// }
-
-// hr {
-// 	opacity: 1;
-// }
-
-// @import 'node_modules/bootstrap/scss/mixins/_utilities.scss';
-// @import 'node_modules/bootstrap/scss/_variables.scss';
-
-// $spacer: 1rem;
-// $spacers: (
-//   0: 0,
-//   1: ($spacer * .25),
-//   2: ($spacer * .5),
-//   3: $spacer,
-//   4: ($spacer * 1.5),
-//   5: ($spacer * 3)
-// );
-// $mySpacers: (
-//   000: 0rem,
-//   025: .25rem,
-//   100: 1rem,
-//   125: 1.25rem,
-//   200: 2rem,
-//   300: 3rem,
-//   350: 3.5rem,
-//   400: 4rem,
-//   450: 4.5rem,
-//   500: 5rem,
-//   550: 5.5rem,
-//   600: 6rem,
-//   650: 6.5rem,
-//   700: 7rem,
-//   750: 7.5rem,
-//   800: 8rem,
-//   850: 8.5rem,
-//   900: 9rem,
-//   950: 9.5rem
-// );
-
-// $mySpacers: ();
-// @for $i from 0 through 20 {
-//   $rem: $i * 0.25;
-//   $key: $i * 25;  // Adjusted this line
-//   $mySpacers: map-merge($mySpacers, ($key: $rem + rem));
-// }
-
-// $spacers: map-merge($mySpacers, $spacers);
-
-// $grid-breakpoints: (
-//   xs: 0,
-//   sm: 576px,
-//   md: 768px,
-//   lg: 992px,
-//   xl: 1200px
-// );
-
-// @function str-pad($number, $length) {
-//   $str: "#{$number}";
-//   @while str-length($str) < $length {
-//     $str: "0#{$str}";
-//   }
-//   @return $str;
-// }
-
-// @mixin generate-paddings($spacers) {
-//     @each $breakpoint in map-keys($grid-breakpoints) {
-//       @each $key, $value in $spacers {
-//         $paddedKey: str-pad($key, 3); // Pad the key to 3 digits
-//         .p-\:#{$paddedKey} {
-//           padding: $value;
-//         }
-//         .pt-#{$breakpoint}-\:#{$paddedKey} {
-//           padding-top: $value;
-//         }
-//         .pr-#{$breakpoint}-\:#{$paddedKey} {
-//           padding-right: $value;
-//         }
-//         .pb-#{$breakpoint}-\:#{$paddedKey} {
-//           padding-bottom: $value;
-//         }
-//         .pl-#{$breakpoint}-\:#{$paddedKey} {
-//           padding-left: $value;
-//         }
-//       }
-//     }
-//   }
-
-// @include generate-paddings($spacers);
-
-
-
-
-  
-
-
-// @import 'node_modules/bootstrap/scss/bootstrap';
+/*******************
+* FONT WEIGHT
+******************/
+@for $i from 1 through 9 {
+  $value: $i * 100;
+  @if not index($font-exclusion, $value) {
+    .fw-#{$i}00 {
+      font-weight: $value;
+    }
+  }
+}
