@@ -1,3 +1,11 @@
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+    --background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
+    --font-family: 'Montserrat', sans-serif;
+}
+
 //Class Names
 $base-class-name: 'base';
 $theme-class-name: 'theme';
@@ -16,13 +24,102 @@ $base-colors: (
 	500: #111827
 );
 
+// BROWN
+// $theme-colors: (
+// 	100: #fef9c3,
+// 	200: #fde047,
+// 	300: #eab308,
+// 	400: #a16207,
+// 	500: #713f12
+// );
+
+//RED
+// $theme-colors: (
+// 	100: #f0c3c3,
+// 	200: #f04747,
+// 	300: #c10808,
+// 	400: #750707,
+// 	500: #441212
+// );
+
+//GREEN
+// $theme-colors: (
+// 	100: #d4f0c3,
+// 	200: #8cf047,
+// 	300: #39b808,
+// 	400: #267507,
+// 	500: #1a4412
+// );
+
+//BLUE
+// $theme-colors: (
+// 	100: #c3dbf0,
+// 	200: #47a8f0,
+// 	300: #0869c1,
+// 	400: #074a75,
+// 	500: #132e44
+// );
+
+//PURPLE
+// $theme-colors: (
+//     100: #e5c3f0,
+//     200: #c647f0,
+//     300: #8108c1,
+//     400: #4a0750,
+//     500: #2b1333
+// );
+
+
+//YELLOW
+// $theme-colors: (
+//     100: #f0f0c3,
+//     200: #f0e647,
+//     300: #c1b808,
+//     400: #746a07,
+//     500: #434312
+// );
+
+
+//PINK
+// $theme-colors: (
+//     100: #f0c3db,
+//     200: #f047a6,
+//     300: #c10869,
+//     400: #75074a,
+//     500: #44132e
+// );
+
+
+//TEAL
+// $theme-colors: (
+//     100: #c3f0e1,
+//     200: #47f0c7,
+//     300: #08c1a6,
+//     400: #075074,
+//     500: #133144
+// );
+
+
+//ORANGE
 $theme-colors: (
-	100: #fef9c3,
-	200: #fde047,
-	300: #eab308,
-	400: #a16207,
-	500: #713f12
+    100: #f0dbc3,
+    200: #f0a047,
+    300: #c17508,
+    400: #754a07,
+    500: #443013
 );
+
+
+//SUBSCRIBE
+$theme-colors: (
+	100: #eff0f8,
+	200: #b8a5f9,
+	300: #8366f1,
+	400: #5d47a8,
+	500: #3f2d71
+);
+
+
 
 $grid-breakpoints: (
   xs: 0,
@@ -38,6 +135,11 @@ $positions:(
     'bottom': 'bottom',
     'start': 'left'
 );
+body{
+    font-family: var(--font-family);
+}
+.glass {background: rgba(255, 255, 255, 0.65);border-radius: 3px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(7.7px);-webkit-backdrop-filter: blur(7.7px);border: 1px solid rgba(255, 255, 255, 0.19);}
+
 /*******************
 * COLORS
 ******************/
@@ -45,7 +147,7 @@ $positions:(
     // Border Color + :hover + :focus
     @each $key, $color in $colors {
         .border-#{$class-name}-#{$key} {
-          border-color: #{$color};
+          border-color: #{$color}!important;
         }
         .hover\:border-#{$class-name}-#{$key}:hover {
             border-color: #{$color};
@@ -129,6 +231,7 @@ $positions:(
         $size: 0% + calc($i * 20);
         width: $size;
     }
+
 } 
 
 /*Max Width*/
@@ -143,6 +246,10 @@ $positions:(
 @for $i from 1 through 4 {
     .h-#{calc($i * 20)} {
         $size: 0% + calc($i * 20);
+        max-height: $size;
+    }
+    .h-#{calc($i * 20)}-vh {
+        $size: 0vh + calc($i * 20);
         max-height: $size;
     }
 } 
@@ -278,3 +385,15 @@ $positions:(
     }
   }
 }
+
+/*******************
+* BACKGROUND IMAGE
+******************/
+.theme-background-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--background-image);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+

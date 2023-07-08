@@ -1,0 +1,68 @@
+|   |-- general design-styles
+|   |   |-- minimalistic
+|   |   |-- modern
+|   |   |-- classic/traditional
+|   |   |-- retro/vintage
+|   |   |-- flat
+|   |   |-- swiss
+|   |   |-- brutalist
+|   |   |-- neumorphism / soft ui
+|   |   |-- glassmorphism
+|   |   |-- skeuomorphic
+|   |   |-- dark / light mode
+|   |-- typography
+|   |   |-- classic serif
+|   |   |-- modern sans serif
+|   |   |-- display/decorative
+|   |   |-- handwritten/script
+|   |   |-- monospaced/typewriter
+|   |   |-- variable fonts
+|   |-- colors and imagery:
+|   |   |-- monochrome
+|   |   |-- duotone
+|   |   |-- vibrant colors
+|   |   |-- muted colors
+|   |   |-- gradients
+|   |   |-- black & white
+|   |   |-- illustrations
+|   |   |-- hero images
+|   |   |-- large typography
+|   |-- navigation
+|   |   |-- horizontal navigation
+|   |   |-- vertical navigation
+|   |   |-- sticky navigation
+|   |   |-- hidden / hamburger menu
+|   |   |-- mega menu
+|   |   |-- breadcrumb navigation
+|   |   |-- pagination
+|   |   |-- infinite scrolling
+|   |   |-- parallax scrolling
+|   |   |-- card-style navigation
+|   |-- ui patterns/components
+|   |   |-- lightbox
+|   |   |-- sliders/carousels
+|   |   |-- accordions
+|   |   |-- tabs
+|   |   |-- modals/dialogs
+|   |   |-- cards
+|   |   |-- hover effects
+|   |   |-- microinteractions
+|   |   |-- loading animations
+|   |   |-- forms & input fields
+|   |   |-- ctas (call to action)
+|   |   |-- testimonials
+|   |   |-- pricing tables
+|   |   |-- faq sections
+|   |   |-- 404 pages
+|   |   |-- animated backgrounds
+|   |   |-- video backgrounds
+|   |   |-- parallax effects
+|   |   |-- push notifications / toast
+|   |   |-- chatbots
+
+
+
+
+
+
+
