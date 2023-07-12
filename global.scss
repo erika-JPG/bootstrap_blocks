@@ -1,10 +1,4 @@
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-:root {
-    --background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
-    --font-family: 'Montserrat', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 //Class Names
 $base-class-name: 'base';
@@ -111,13 +105,13 @@ $theme-colors: (
 
 
 //SUBSCRIBE
-$theme-colors: (
-	100: #eff0f8,
-	200: #b8a5f9,
-	300: #8366f1,
-	400: #5d47a8,
-	500: #3f2d71
-);
+// $theme-colors: (
+// 	100: #eff0f8,
+// 	200: #b8a5f9,
+// 	300: #8366f1,
+// 	400: #5d47a8,
+// 	500: #3f2d71
+// );
 
 
 
@@ -135,8 +129,24 @@ $positions:(
     'bottom': 'bottom',
     'start': 'left'
 );
+
+$border-radius: (
+  'sm': .5rem,
+  'md': .75rem,
+  'lg': 1rem,
+  'xl': 2rem
+);
+
+:root {
+    --background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
+    --font-family: 'Open Sans', sans-serif;
+}
+
 body{
     font-family: var(--font-family);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arsenal', sans-serif;
 }
 .glass {background: rgba(255, 255, 255, 0.65);border-radius: 3px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(7.7px);-webkit-backdrop-filter: blur(7.7px);border: 1px solid rgba(255, 255, 255, 0.19);}
 
@@ -231,8 +241,19 @@ body{
         $size: 0% + calc($i * 20);
         width: $size;
     }
-
 } 
+@for $i from 1 through 10 {
+    .w#{calc($i * 10)}-vh {
+        $size: 0vh + calc($i * 10);
+        width: $size;
+    }
+}
+@for $i from 1 through 10 {
+    .w-#{calc($i * 10)}-vw {
+        $size: 0vw + calc($i * 10);
+        width: $size;
+    }
+}
 
 /*Max Width*/
 @for $i from 1 through 4 {
@@ -241,18 +262,39 @@ body{
         max-width: $size;
     }
 } 
+@for $i from 1 through 10 {
+    .mw#{calc($i * 10)}-vh {
+        $size: 0vh + calc($i * 10);
+        max-width: $size;
+    }
+}
+@for $i from 1 through 10 {
+    .mw-#{calc($i * 10)}-vw {
+        $size: 0vw + calc($i * 10);
+        max-width: $size;
+    }
+}
 
 /*Height*/
 @for $i from 1 through 4 {
     .h-#{calc($i * 20)} {
         $size: 0% + calc($i * 20);
-        max-height: $size;
+        height: $size;
     }
-    .h-#{calc($i * 20)}-vh {
-        $size: 0vh + calc($i * 20);
-        max-height: $size;
-    }
+
 } 
+@for $i from 1 through 10 {
+    .h-#{calc($i * 10)}-vh {
+        $size: 0vh + calc($i * 10);
+        height: $size;
+    }
+}
+@for $i from 1 through 10 {
+    .h-#{calc($i * 10)}-vw {
+        $size: 0vw + calc($i * 10);
+        height: $size;
+    }
+}
 
 /*Max Height*/
 @for $i from 1 through 4 {
@@ -261,6 +303,18 @@ body{
         max-height: $size;
     }
 } 
+@for $i from 1 through 10 {
+    .mh-#{calc($i * 10)}-vh {
+        $size: 0vh + calc($i * 10);
+        max-height: $size;
+    }
+}
+@for $i from 1 through 10 {
+    .mh-#{calc($i * 10)}-vw {
+        $size: 0vw + calc($i * 10);
+        max-height: $size;
+    }
+}
 
 /*Font Size*/
 @for $i from 1 through 4 {
@@ -332,7 +386,7 @@ body{
 
 
 /*******************
-* THEME BUTTON
+* THEME BUTTONS
 ******************/
 @mixin set-button-colors($bg-color) {
   background-color: $bg-color;
@@ -357,23 +411,47 @@ body{
     }
   }
 }
+@mixin set-button-outline($bg-color) {
+    border: 1px solid $bg-color;
+    color: $bg-color;
+    
+    // Apply the hover effect
+    &:hover {
+      $hover-color: darken($bg-color, 1%);
+      background-color: $hover-color;
+      box-shadow: unset!important;
+  
+      // Set the text color on hover based on the lightness of the hover background color
+      @if (lightness($hover-color) > 50) {
+        color: #000; // Light background, return dark text color
+      } @else {
+        color: #fff; // Dark background, return light text color
+      }
+    }
+  }
 
-// Iterate over the map to generate the color rules for each key
+
 @each $key, $color in $theme-colors {
-  // Generate the CSS rules for this key
   .btn-theme-#{$key} {
     @include set-button-colors($color);
     border: 0;
   }
+  .btn-outline-theme-#{$key} {
+    @include set-button-outline($color);
+  }
 }
+
 @each $key, $color in $base-colors {
-  // Generate the CSS rules for this key
   .btn-base-#{$key} {
     @include set-button-colors($color);
     border: 0;
   }
-}
+    .btn-outline-base-#{$key} {
+      @include set-button-outline($color);
+    }
+  }
 
+  
 /*******************
 * FONT WEIGHT
 ******************/
@@ -385,6 +463,15 @@ body{
     }
   }
 }
+/*******************
+* BORDER RADIUS
+******************/
+@each $key, $radius in $border-radius {
+    .rounded-#{$key} {
+      border-radius: $radius;
+    }
+  }
+
 
 /*******************
 * BACKGROUND IMAGE

@@ -1,0 +1,46 @@
+|-- blocks Home
+|   |-- block type: navbar, header, footer, product card, etc
+|   |   |-- block structure:
+|   |   |   |-- navigation
+|   |   |   |   |-- horizontal navigation
+|   |   |   |   |-- vertical navigation
+|   |   |   |   |-- sticky navigation
+|   |   |   |   |-- hidden / hamburger menu
+|   |   |   |   |-- mega menu
+|   |   |   |   |-- breadcrumb navigation
+|   |   |   |   |-- pagination
+|   |   |   |   |-- parallax scrolling
+|   |   |   |   |-- card-style navigation
+|   |   |   |-- ui patterns/components
+|   |   |   |   |-- single-column
+|   |   |   |   |-- two-column
+|   |   |   |   |-- three-column
+|   |   |   |   |-- four+ column
+
+
+|   |   |   |-- web desing
+|   |   |   |   |   |-- minimalistic
+|   |   |   |   |   |-- modern
+|   |   |   |   |   |-- classic/traditional
+|   |   |   |   |   |-- retro/vintage
+|   |   |   |   |   |-- flat
+|   |   |   |   |   |-- swiss
+|   |   |   |   |   |-- brutalist
+|   |   |   |   |   |-- neumorphism / soft ui
+|   |   |   |   |   |-- glassmorphism
+|   |   |   |   |   |-- skeuomorphic
+|   |   |   |   |   |-- dark / light mode
+|   |   |   |   |-- X typography - not accounted for, variable depending on project need (not tied to block)
+|   |   |   |   |-- X colors and imagery - (not tied to block)
+
+
+
+
+
+
+
+
+
+
+
+

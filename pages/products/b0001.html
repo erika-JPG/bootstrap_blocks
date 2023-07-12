@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css" />
+        <link href="../../global.css" rel="stylesheet">
+        <title>b001 - product</title>
+      </head>
+<body>
+    <script src="https://use.fontawesome.com/9fd61c4e7d.js"></script>
+    <div class="bg-light h-10-vh"></div>
+    <section>
+        <div class="container">
+          <div class="row">
+            <div class="container py-5">
+              <div class="row justify-content-center align-items-start">
+                <h1 class="text-center mb-5 pb-4 fw-bold">{{slugProduct.name}}</h1>
+                <div class="col-md-6 py-1 d-flex justify-content-center align-items-center flex-column pb-3">
+                  <div>
+                      <img src="{{slugProduct.otherImages.0.url}}" class="img-fluid">
+                  </div>
+                </div>
+                <div class="col-md-6 py-1">
+                  <form method="post" class="sf-qty-form" data-gjs-type="Shopping Cart Add Item Form" data-gjs-sf-plugin-type="add" data-gjs-sf-product="{{slugProduct.id}}" data-gjs-sf-route="checkout">
+                    <p id="iv26o" class="h2 fw-bold">{{slugProduct.name}}</p>
+                    <p class="small lead fw-bold">${{slugProduct.price}}</p>
+                    <p class="lead">{{slugProduct.shortDescription}}</p>
+                    <div >
+                      <div class="lead">{{slugProduct.longDescription}}</div>
+                      <div class="lead py-3 mb-3 border-bottom">{{slugProduct.specialTerms}}</div>
+                    </div>
+                    <div class="row justify-content-between align-items-center px-3">
+                      <div class="lead col-12 col-md-4 ps-0 pt-3 pt-lg-0 fw-bold">
+                        <input type="hidden" name="quantity" value="1" min="1">
+                        <div class="sf-quantity-selector d-flex flex-row">
+                          <div class="qty-btn decrease-btn bg-light py-2 px-3 border-top rounded-start border-bottom border-start  border-theme-500" role="button">-</div>
+                          <div class="qty-value bg-light py-2 px-3 border border-theme-500 border text-center w-40 mw-80">1</div>
+                          <div class="qty-btn increase-btn bg-light py-2 px-3 border-top border-end border-bottom rounded-end border-theme-500" role="button">+</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row justify-content-between align-items-center px-3">
+                      <button class="my-3 col-12 text-cream col-md-8 py-3 text-uppercase rounded-3 btn-theme-500">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;
+   Add To Cart<span></span>
+                      </button>
+                    </div>
+                    <div class="prd-faq-box">
+                      <div class="acdn-content ingrdnt-close"></div>
+                      <div class="acdn-content how-toUse-close">
+                        <p class="small fst-italic py-3">{{slugProduct.terms}}</p>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="bg-light h-20-vh">
+
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script>
+		(function() {
+			const forms = document.querySelectorAll('.sf-qty-form');
+			forms.forEach((el) => {
+
+				const decrease = el.querySelector('.decrease-btn');
+				const increase = el.querySelector('.increase-btn');
+				const onClick = function(action) {
+				const input = el.querySelector('[name=quantity]') || {
+						value: 1,
+						min: 1
+				};
+				const display = el.querySelector('.qty-value') || {}
+				const min = input.min;
+				let qty = parseInt(input.value || 0);
+				if (isNaN(qty)) {
+					input.value = min;
+					display.innerHTML = min
+					return;
+				}
+				if (action == '-') {
+					qty = qty - 1;
+					if (qty < min) {
+						qty = min;
+					}
+				} else {
+					qty = qty + 1;
+				}
+				input.value = qty;
+				display.innerHTML = qty
+				
+			}
+			if (decrease) {
+				decrease.addEventListener('click', (e) => {
+					e.preventDefault();
+					onClick('-');
+				});
+			}
+			if (increase) {
+				increase.addEventListener('click', (e) => {
+					e.preventDefault();
+					onClick('+');
+				});
+			}
+		})
+	})();
+	  </script>
+</body>
+</html>

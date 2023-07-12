@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css" />
+        <link href="../../global.css" rel="stylesheet">
+        <title>000 Template</title>
+      </head>
+<body>
+    <script src="https://use.fontawesome.com/9fd61c4e7d.js"></script>
+    <div class="container">
+        <main>
+          <div class="py-5 text-center">
+            <img src="https://s3.amazonaws.com/subscribe-funnels-production/assets/e57f1982-9754-41a9-825b-9c192229a71f/icon.png" alt="" width="52" height="52" class="d-block mx-auto mb-4">
+            <h2>Checkout form</h2>
+            <p class="lead">Below is an example form built entirely with Bootstrap’s form controls, using Subscribe Funnels "Input Order" form attributes. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it. Names, Patterns, Min/max are set to SF standards for validation.</p>
+          </div>
+          <div class="row">
+            <div class="col-md-5 col-lg-4 order-md-last mb-5">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Your cart</span>
+                <span class="badge bg-primary rounded-pill">{{cart.items.length}}</span>
+              </h4>
+              <ul class="list-group mb-3">
+                {{#forEach cart.items}}
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">{{name}}</h6>
+                      <small class="text-muted">Qty: {{quantity}}</small>
+                      <small class="text-muted px-2">${{price}}</small>
+                      <div>
+                        <button data-gjs-type="Shopping Cart Add Item" data-gjs-sf-plugin-type="add" data-gjs-sf-product="{{product}}" class="badge bg-primary rounded-pill border-0">+</button>
+                        <button data-gjs-type="Shopping Cart Remove Item" data-gjs-sf-product="{{product}}" class="badge bg-primary rounded-pill border-0 mx-1">-</button>
+                      </div>
+                    </div>
+                  </li>
+                {{/forEach}}
+      
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total (USD)</span>
+                  <strong>${{toFixed cart.subtotal 2}}</strong>
+                </li>
+              </ul>
+              <form class="card p-2">
+                <div class="input-group">
+                  <input type="text" placeholder="Promo code" class="form-control">
+                  <button type="submit" class="btn btn-secondary">Redeem</button>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-7 col-lg-8">
+              <h4 class="mb-3">Shipping address</h4>
+              <form id="order_form" method="post" action="thankyou" data-gjs-type="Konnektive Import Order" data-gjs-sf-plugin="sf-konnektive" data-gjs-sf-plugin-type="Konnektive Import Order" data-gjs-sf-plugin-name="e14fc05a-8326-4527-ad50-a2b222c4f103" class="needs-validation">
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input type="text" id="firstName" name="firstName" minlength="1" placeholder="First Name" value="" required="" class="form-control">
+                    <div class="invalid-feedback">
+                      Valid first name is required.
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input type="text" id="lastName" name="lastName" minlength="1" placeholder="Last Name" value="" required="" class="form-control">
+                    <div class="invalid-feedback">
+                      Valid last name is required.
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <div class="input-group has-validation">
+                      <input type="tel" id="phone" name="phone" placeholder="Phone Number" required="" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="10" pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$" class="form-control">
+                      <div class="invalid-feedback">
+                        Your phone is required.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" id="email" required="" placeholder="you@example.com" pattern=".+@.+\..+" class="form-control">
+                    <div class="invalid-feedback">
+                      Please enter a valid email address for shipping updates.
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" name="address1" id="address" minlength="3" placeholder="1234 Main St" required="" class="form-control">
+                    <div class="invalid-feedback">
+                      Please enter your shipping address.
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" name="city" id="city" minlength="1" placeholder="City" required="" class="form-control">
+                    <div class="invalid-feedback">
+                      Please enter your city.
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label for="country" class="form-label">Country</label>
+                    <select id="country" name="country" required="" class="form-select">
+                      <option value="">Choose...</option>
+                      <option value="US">United States</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid country.
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="state" class="form-label">State</label>
+                    <select id="state" name="state" required="" class="form-select">
+                      <option value="">Choose...</option>
+                      <option value="AL">Alabama (AL)</option>
+                      <option value="AK">Alaska (AK)</option>
+                      <option value="AZ">Arizona (AZ)</option>
+                      <option value="AR">Arkansas (AR)</option>
+                      <option value="CA">California (CA)</option>
+                      <option value="CO">Colorado (CO)</option>
+                      <option value="CT">Connecticut (CT)</option>
+                      <option value="DE">Delaware (DE)</option>
+                      <option value="DC">District of Columbia (DC)</option>
+                      <option value="FL">Florida (FL)</option>
+                      <option value="GA">Georgia (GA)</option>
+                      <option value="HI">Hawaii (HI)</option>
+                      <option value="ID">Idaho (ID)</option>
+                      <option value="IL">Illinois (IL)</option>
+                      <option value="IN">Indiana (IN)</option>
+                      <option value="IA">Iowa (IA)</option>
+                      <option value="KS">Kansas (KS)</option>
+                      <option value="KY">Kentucky (KY)</option>
+                      <option value="LA">Louisiana (LA)</option>
+                      <option value="ME">Maine (ME)</option>
+                      <option value="MD">Maryland (MD)</option>
+                      <option value="MA">Massachusetts (MA)</option>
+                      <option value="MI">Michigan (MI)</option>
+                      <option value="MN">Minnesota (MN)</option>
+                      <option value="MS">Mississippi (MS)</option>
+                      <option value="MO">Missouri (MO)</option>
+                      <option value="MT">Montana (MT)</option>
+                      <option value="NE">Nebraska (NE)</option>
+                      <option value="NV">Nevada (NV)</option>
+                      <option value="NH">New Hampshire (NH)</option>
+                      <option value="NJ">New Jersey (NJ)</option>
+                      <option value="NM">New Mexico (NM)</option>
+                      <option value="NY">New York (NY)</option>
+                      <option value="NC">North Carolina (NC)</option>
+                      <option value="ND">North Dakota (ND)</option>
+                      <option value="OH">Ohio (OH)</option>
+                      <option value="OK">Oklahoma (OK)</option>
+                      <option value="OR">Oregon (OR)</option>
+                      <option value="PA">Pennsylvania (PA)</option>
+                      <option value="PR">Puerto Rico (PR)</option>
+                      <option value="RI">Rhode Island (RI)</option>
+                      <option value="SC">South Carolina (SC)</option>
+                      <option value="SD">South Dakota (SD)</option>
+                      <option value="TN">Tennessee (TN)</option>
+                      <option value="TX">Texas (TX)</option>
+                      <option value="UT">Utah (UT)</option>
+                      <option value="VT">Vermont (VT)</option>
+                      <option value="VI">Virgin Islands of the U.S. (VI)</option>
+                      <option value="VA">Virginia (VA)</option>
+                      <option value="WA">Washington (WA)</option>
+                      <option value="WV">West Virginia (WV)</option>
+                      <option value="WI">Wisconsin (WI)</option>
+                      <option value="WY">Wyoming (WY)</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please provide a valid state.
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="zip" class="form-label">Zip</label>
+                    <input type="tel" name="zip" id="zip" placeholder="Zipcode" required="" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="5" pattern="^\d{5}(-\d{4})?$" class="form-control">
+                    <div class="invalid-feedback">
+                      Zip code required.
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                <div class="form-check">
+                  <input type="checkbox" name="billShipSame" id="same-address" value="1" checked="checked" class="form-check-input">
+                  <label for="same-address" class="form-check-label">Is your billing address same as shipping address?</label>
+                </div>
+                <div class="row g-3 mt-3 billing">
+                  <h4 class="mb-3">Billing address</h4>
+                  <div class="col-6">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" name="billAddress1" id="address-2" placeholder="1234 Main St" class="form-control">
+                    <div class="invalid-feedback">
+                      Please enter your billing address.
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" name="billCity" id="city-2" placeholder="City" class="form-control">
+                    <div class="invalid-feedback">
+                      Please enter your city.
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label for="country" class="form-label">Country</label>
+                    <select id="country-2" name="billCountry" class="form-select">
+                      <option value="">Choose...</option>
+                      <option value="US">United States</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid country.
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="state" class="form-label">State</label>
+                    <select id="state-2" name="billState" class="form-select">
+                      <option value="">Choose...</option>
+                      <option value="AL">Alabama (AL)</option>
+                      <option value="AK">Alaska (AK)</option>
+                      <option value="AZ">Arizona (AZ)</option>
+                      <option value="AR">Arkansas (AR)</option>
+                      <option value="CA">California (CA)</option>
+                      <option value="CO">Colorado (CO)</option>
+                      <option value="CT">Connecticut (CT)</option>
+                      <option value="DE">Delaware (DE)</option>
+                      <option value="DC">District of Columbia (DC)</option>
+                      <option value="FL">Florida (FL)</option>
+                      <option value="GA">Georgia (GA)</option>
+                      <option value="HI">Hawaii (HI)</option>
+                      <option value="ID">Idaho (ID)</option>
+                      <option value="IL">Illinois (IL)</option>
+                      <option value="IN">Indiana (IN)</option>
+                      <option value="IA">Iowa (IA)</option>
+                      <option value="KS">Kansas (KS)</option>
+                      <option value="KY">Kentucky (KY)</option>
+                      <option value="LA">Louisiana (LA)</option>
+                      <option value="ME">Maine (ME)</option>
+                      <option value="MD">Maryland (MD)</option>
+                      <option value="MA">Massachusetts (MA)</option>
+                      <option value="MI">Michigan (MI)</option>
+                      <option value="MN">Minnesota (MN)</option>
+                      <option value="MS">Mississippi (MS)</option>
+                      <option value="MO">Missouri (MO)</option>
+                      <option value="MT">Montana (MT)</option>
+                      <option value="NE">Nebraska (NE)</option>
+                      <option value="NV">Nevada (NV)</option>
+                      <option value="NH">New Hampshire (NH)</option>
+                      <option value="NJ">New Jersey (NJ)</option>
+                      <option value="NM">New Mexico (NM)</option>
+                      <option value="NY">New York (NY)</option>
+                      <option value="NC">North Carolina (NC)</option>
+                      <option value="ND">North Dakota (ND)</option>
+                      <option value="OH">Ohio (OH)</option>
+                      <option value="OK">Oklahoma (OK)</option>
+                      <option value="OR">Oregon (OR)</option>
+                      <option value="PA">Pennsylvania (PA)</option>
+                      <option value="PR">Puerto Rico (PR)</option>
+                      <option value="RI">Rhode Island (RI)</option>
+                      <option value="SC">South Carolina (SC)</option>
+                      <option value="SD">South Dakota (SD)</option>
+                      <option value="TN">Tennessee (TN)</option>
+                      <option value="TX">Texas (TX)</option>
+                      <option value="UT">Utah (UT)</option>
+                      <option value="VT">Vermont (VT)</option>
+                      <option value="VI">Virgin Islands of the U.S. (VI)</option>
+                      <option value="VA">Virginia (VA)</option>
+                      <option value="WA">Washington (WA)</option>
+                      <option value="WV">West Virginia (WV)</option>
+                      <option value="WI">Wisconsin (WI)</option>
+                      <option value="WY">Wyoming (WY)</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please provide a valid state.
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="zip" class="form-label">Zip</label>
+                    <input type="tel" name="billZip" id="zip-2" placeholder="Zipcode" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="5" pattern="^\d{5}(-\d{4})?$" class="form-control">
+                    <div class="invalid-feedback">
+                      Zip code required.
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                <h4 class="mb-3">Payment</h4>
+                <div class="my-3">
+                  <div class="form-check">
+                    <input type="radio" id="credit" name="paymentMethod" checked="" required="" class="form-check-input">
+                    <label for="credit" class="form-check-label">Credit card</label>
+                  </div>
+                  <div class="form-check d-none">
+                    <input type="radio" id="paypal" name="paymentMethod" required="" class="form-check-input">
+                    <label for="paypal" class="form-check-label">PayPal</label>
+                  </div>
+                </div>
+                <div class="row gy-3">
+                  <div class="fw-bold text-dark py-2 col-8">We Accept:
+                    {{#contains themeCards 'visa'}}
+                      <img src="https://s3.amazonaws.com/subscribe-funnels-production/assets/d1457d6a-609c-40a3-b5de-7f106703dc65/visa.jpg" class="col-2">
+                    {{/contains}}
+                    {{#contains themeCards 'mc'}}
+                      <img src="https://s3.amazonaws.com/subscribe-funnels-production/assets/d1457d6a-609c-40a3-b5de-7f106703dc65/master.jpg" class="col-2">
+                    {{/contains}}
+                    {{#contains themeCards 'amex'}}
+                      <img src="https://s3.amazonaws.com/subscribe-funnels-production/assets/d1457d6a-609c-40a3-b5de-7f106703dc65/amex.jpg" class="col-2">
+                    {{/contains}}
+                    {{#contains themeCards 'disco'}}
+                      <img src="https://s3.amazonaws.com/subscribe-funnels-production/assets/d1457d6a-609c-40a3-b5de-7f106703dc65/discover.jpg" class="col-2">
+                    {{/contains}}
+                  </div>
+                  <div class="col-md-12">
+                    <label for="cc-number" class="form-label">Credit card number</label>
+                    <input type="tel" name="cardNumber" id="cc-number" placeholder="Credit Card Number" required="" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="16" pattern="^[0-9]{15,16}$" class="form-control">
+                    <div class="invalid-feedback">
+                      Credit card number is required
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="cc-expiration-mo" class="form-label">Expiry Month</label>
+                    <select name="cardMonth" id="cc-expiration-mo" required="" class="form-select">
+                      <option disabled="">Exp. Month</option>
+                      <option value="01">January</option>
+                      <option value="02">February</option>
+                      <option value="03">March</option>
+                      <option value="04">April</option>
+                      <option value="05">May</option>
+                      <option value="06">June</option>
+                      <option value="07">July</option>
+                      <option value="08">August</option>
+                      <option value="09">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Expiration Month required
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="cc-expiration-yr" class="form-label">Expiry Year</label>
+                    <select name="cardYear" id="cc-expiration-yr" required="" class="form-select">
+                      <option disabled="">Exp. Year</option>
+                      <option value="{{moment 'YYYY'}}">{{moment 'YYYY'}}</option>
+                      <option value="{{moment 'next year' 'YYYY'}}">{{moment 'next year' 'YYYY'}}</option>
+                      <option value="{{moment 'two years' 'YYYY'}}">{{moment 'two years' 'YYYY'}}</option>
+                      <option value="{{moment 'three years' 'YYYY'}}">{{moment 'three years' 'YYYY'}}</option>
+                      <option value="{{moment 'four years' 'YYYY'}}">{{moment 'four years' 'YYYY'}}</option>
+                      <option value="{{moment 'five years' 'YYYY'}}">{{moment 'five years' 'YYYY'}}</option>
+                      <option value="{{moment 'six years' 'YYYY'}}">{{moment 'six years' 'YYYY'}}</option>
+                      <option value="{{moment 'seven years' 'YYYY'}}">{{moment 'seven years' 'YYYY'}}</option>
+                      <option value="{{moment 'eight years' 'YYYY'}}">{{moment 'eight years' 'YYYY'}}</option>
+                      <option value="{{moment 'nine years' 'YYYY'}}">{{moment 'nine years' 'YYYY'}}</option>
+                      <option value="{{moment 'ten years' 'YYYY'}}">{{moment 'ten years' 'YYYY'}}</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Expiration Year required
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="cc-cvv" class="form-label">CVV</label>
+                    <input type="tel" name="cardSecurityCode" id="cc-cvv" placeholder="CVV" required="" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="4" pattern="^[0-9]{3,4}$" class="form-control">
+                    <div class="invalid-feedback">
+                      Security code required
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                <button type="submit" class="w-100 btn btn-primary btn-lg">Continue to checkout</button>
+                <div class="text-center text-danger fw-bold"> {{#if sf-error-message}}
+                    <div>Error: {{sf-error-message}}</div>
+                  {{/if}} </div>
+              </form>
+            </div>
+          </div>
+        </main>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+          <p class="mb-1">Copyright © {{moment 'YYYY'}} {{brandName}}</p>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="#">Privacy</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">Terms</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">Support</a>
+            </li>
+          </ul>
+        </footer>
+      </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
