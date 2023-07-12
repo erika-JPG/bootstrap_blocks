@@ -164,6 +164,11 @@ h1, h2, h3, h4, h5, h6 {
         }
         .focus\:border-#{$class-name}-#{$key}:focus {
             border-color: #{$color};
+            box-shadow: 0 0 0 0.25rem rgba($color,.25);
+        }
+        .checked\:bg-#{$class-name}-#{$key}:checked {
+            background-color: #{$color};
+            border-color: #{$color};
         }
     }
 
@@ -319,7 +324,7 @@ h1, h2, h3, h4, h5, h6 {
 /*Font Size*/
 @for $i from 1 through 4 {
 	.text-sm-#{$i} {
-		$size: 1em - calc($i / 8);
+		$size: 1rem - calc($i / 8);
 		font-size: $size;
 	}
 }

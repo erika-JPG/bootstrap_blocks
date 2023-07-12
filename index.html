@@ -173,6 +173,21 @@
 	})();
 	</script>
 
+  <!-- Billship same -->
+  <script>
+    $(document).ready(function() {
+      var MainForm = '#order_form';
+      $('input[name="billShipSame"]', MainForm).change(function() {
+        if ($('input[name="billShipSame"]:checked', MainForm).val() == '1') {
+          $('.billing', MainForm).hide();
+        } else {
+          $('.billing', MainForm).removeClass('d-none');
+          $('.billing', MainForm).fadeIn('fast');
+        }
+      }).trigger('change');
+    });
+  </script>
+
   <!-- Trigger Bootstrap Validation -->
   <script>
       const form = document.getElementById('order_form');
