@@ -76,7 +76,7 @@
                   <div class="col-6">
                     <label for="phone" class="form-label">Phone Number</label>
                     <div class="input-group has-validation">
-                      <input type="tel" id="phone" name="phone" placeholder="Phone Number" required="" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="10" pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$" class="form-control">
+                      <input type="tel" id="phone" name="phone" placeholder="Phone Number" required="" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="10" pattern="\d{10}" class="form-control">
                       <div class="invalid-feedback">
                         Your phone is required.
                       </div>
@@ -185,8 +185,8 @@
                 </div>
                 <hr class="my-4">
                 <div >
-                  <input type="checkbox" name="billShipSame" id="same-address" value="1" checked="checked" class="form-check-input checked:bg-theme-500 focus:border-theme-100">
-                  <label for="same-address" >Is your billing address same as shipping address?</label>
+                  <input type="checkbox" name="billShipSame" id="same-address" value="1" checked="checked" class="form-check-input checked:bg-theme-500 border-theme-500 focus:border-theme-100 focus:box-shadow-theme-200">
+                  <label for="same-address"> Is your billing address same as shipping address?</label>
                 </div>
                 <div class="row g-3 mt-3 billing">
                   <h4 class="mb-3">Billing address</h4>
@@ -288,7 +288,7 @@
                 <h4 class="mb-3">Payment</h4>
                 <div class="my-3">
                   <div class="form-check">
-                    <input type="radio" id="credit" name="paymentMethod" checked="" required="" class="form-check-input checked:bg-theme-500 focus:border-theme-100">
+                    <input type="radio" id="credit" name="paymentMethod" checked="" required="" class="form-check-input checked:bg-theme-500 focus:box-shadow-theme-200 border-theme-500">
                     <label for="credit" class="form-check-label">Credit card</label>
                   </div>
                   <div class="form-check d-none">
@@ -375,15 +375,13 @@
                   </div>
                 </div>
                 <hr class="my-4">
-                <button type="submit" class="w-100 btn btn-theme-300 btn-lg">Continue to checkout</button>
+                <button type="submit" class="w-100 btn btn-success btn-lg">Continue to checkout</button>
                 <div class="text-center text-danger fw-bold"> {{#if sf-error-message}}
                     <div>Error: {{sf-error-message}}</div>
                   {{/if}} </div>
               </form>
             </div>
           </div>
-        
-    
       </div>
 
 

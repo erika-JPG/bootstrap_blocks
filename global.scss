@@ -140,6 +140,14 @@ $border-radius: (
 :root {
     --background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
     --font-family: 'Open Sans', sans-serif;
+    @each $key, $color in $theme-colors {
+        --theme-color-#{$key}: #{$color};
+        --theme-color-#{$key}-light: #{lighten($color, 10%)};
+      }
+      @each $key, $color in $base-colors {
+        --base-color-#{$key}: #{$color};
+        --base-color-#{$key}-light: #{lighten($color, 10%)};
+      }
 }
 
 body{
@@ -154,85 +162,73 @@ h1, h2, h3, h4, h5, h6 {
 * COLORS
 ******************/
 @mixin generateColorClasses($colors, $class-name) {
-    // Border Color + :hover + :focus
-    @each $key, $color in $colors {
-        .border-#{$class-name}-#{$key} {
-          border-color: #{$color}!important;
+    @each $i in 100, 200, 300, 400, 500  {
+        
+        // Border Color + :hover + :focus
+        .border-#{$class-name}-#{$i} {
+            border-color: var(--#{$class-name}-color-#{$i})!important;
         }
-        .hover\:border-#{$class-name}-#{$key}:hover {
-            border-color: #{$color};
+        .hover\:border-#{$class-name}-#{$i}:hover {
+            border-color: var(--#{$class-name}-color-#{$i});
         }
-        .focus\:border-#{$class-name}-#{$key}:focus {
-            border-color: #{$color};
-            box-shadow: 0 0 0 0.25rem rgba($color,.25);
+        .focus\:border-#{$class-name}-#{$i}:focus {
+            border-color: var(--#{$class-name}-color-#{$i})!important;
         }
-        .checked\:bg-#{$class-name}-#{$key}:checked {
-            background-color: #{$color};
-            border-color: #{$color};
+        .checked\:border-#{$class-name}-#{$i}:checked {
+            border-color: var(--#{$class-name}-color-#{$i})!important;
         }
-    }
 
-    //Text Color + :hover + :focus
-    @each $key, $color in $colors {
-        .text-#{$class-name}-#{$key} {
-            color: #{$color};
+        //Text Color + :hover + :focus
+        .text-#{$class-name}-#{$i} {
+            color: var(--#{$class-name}-color-#{$i});
         }
-        .hover\:text-#{$class-name}-#{$key}:hover {
-            color: #{$color};
+        .hover\:text-#{$class-name}-#{$i}:hover {
+            color: var(--#{$class-name}-color-#{$i});
         }
-        .focus\:text-#{$class-name}-#{$key}:focus {
-            color: #{$color};
+        .focus\:text-#{$class-name}-#{$i}:focus {
+            color: var(--#{$class-name}-color-#{$i});
         }
-    }
-  
-    // Background Color + :hover + :focus
-    @each $key, $color in $colors {
-        .bg-#{$class-name}-#{$key} {
-            --bg-opacity: 1;
-            background-color: rgba($color, var(--bg-opacity));
-        }
-        .hover\:bg-#{$class-name}-#{$key}:hover {
-            background-color: #{$color};		
-        }
-        .focus\:bg-#{$class-name}-#{$key}:focus {
-            background-color: #{$color};		
-        }
-    }
 
-    // Link Color + :hover
-    @each $key, $color in $colors {
-        .link-#{$class-name}-#{$key} {
-            color: #{$color};
-            -webkit-text-decoration-color: #{$color};
-            text-decoration-color: #{$color};
+        // Background Color + :hover + :focus
+        .bg-#{$class-name}-#{$i} {
+            background-color: var(--#{$class-name}-color-#{$i});
         }
-        .link-#{$class-name}-#{$key}:hover, .link-#{$class-name}-#{$key}:focus {
-            $light: lighten($color, 10%);
-            color:#{$light}
+        .hover\:bg-#{$class-name}-#{$i}:hover {
+            background-color: var(--#{$class-name}-color-#{$i});		
+        }
+        .focus\:bg-#{$class-name}-#{$i}:focus {
+            background-color: var(--#{$class-name}-color-#{$i});		
+        }
+        .checked\:bg-#{$class-name}-#{$i}:checked {
+            background-color: var(--#{$class-name}-color-#{$i});		
+        }
+
+         // Link Color + :hover
+         .link-#{$class-name}-#{$i} {
+            color: var(--#{$class-name}-color-#{$i});
+            -webkit-text-decoration-color: var(--#{$class-name}-color-#{$i});
+            text-decoration-color: var(--#{$class-name}-color-#{$i});
+        }
+        .link-#{$class-name}-#{$i}:hover, .link-#{$class-name}-#{$i}:focus {
+            color: var(--#{$class-name}-color-#{$i}-light);
         } 
     }
+
     // Shadow color as --shadow-color
     @each $key, $color in $colors {
-        .focus\:shadow-#{$class-name}-#{$key}:focus {
+        .box-shadow-#{$class-name}-#{$key}{
             --shadow-color: #{$color};
+            box-shadow: $offset-shadow, 0 0 0 3px  var(--shadow-color), $base-shadow;
         }
-        .hover\:shadow-#{$class-name}-#{$key}:hover {
-            --shadow-color: #{$color};
-        }
-        //Box Shadow Spread Radius
-        @for $i from 1 through 5 {
-            $ring-shadow: 0 0 0 #{$i}px var(--shadow-color); 
-            .focus\:shadow-#{$i}:focus {
-                box-shadow: $offset-shadow, $ring-shadow, $base-shadow;
-            }
-            .hover\:shadow-#{$i}:hover {
-            	box-shadow: $offset-shadow, $ring-shadow, $base-shadow;
-            }
-        } 
     }
-
- 
 }
+
+@for $i from 1 through 5 {
+    .box-shadow-#{$i} {
+        --ring-shadow: 0 0 0 #{$i}px ; 
+        box-shadow: $offset-shadow, var(--ring-shadow) var(--shadow-color), $base-shadow;
+    }
+} 
 
 @include generateColorClasses($theme-colors, $theme-class-name);
 @include generateColorClasses($base-colors, $base-class-name);
@@ -380,6 +376,31 @@ h1, h2, h3, h4, h5, h6 {
 .focus\:bg-black:focus {
 	background-color: #000;
 }
+//Box Shadow Spread Radius
+@for $i from 1 through 5 {
+    .focus\:box-shadow-#{$i}:focus {
+        --ring-shadow: 0 0 0 #{$i}px ; 
+        box-shadow: $offset-shadow, var(--ring-shadow) var(--shadow-color), $base-shadow;
+    }
+    .hover\:box-shadow-#{$i}:hover {
+        --ring-shadow: 0 0 0 #{$i}px ; 
+        box-shadow: $offset-shadow, var(--ring-shadow) var(--shadow-color), $base-shadow;
+    }
+} 
+
+@mixin generateBoxShadow($colors, $class-name) {
+    @each $key, $color in $colors {
+        .focus\:box-shadow-#{$class-name}-#{$key}:focus {
+            --shadow-color: #{$color};
+            box-shadow: $offset-shadow, 0 0 0 3px  var(--shadow-color), $base-shadow;
+        }
+        .hover\:box-shadow-#{$class-name}-#{$key}:hover {
+            --shadow-color: #{$color};
+            box-shadow: $offset-shadow, 0 0 0 3px  var(--shadow-color), $base-shadow!important;
+        }
+    }
+}
+@include generateBoxShadow($theme-colors, $theme-class-name);
 
 /*******************
 * OUTLINE
@@ -389,45 +410,42 @@ h1, h2, h3, h4, h5, h6 {
     outline-offset: 2px;
 }
 
-
 /*******************
 * THEME BUTTONS
 ******************/
-@mixin set-button-colors($bg-color) {
-  background-color: $bg-color;
 
-  // Set the text color based on the lightness of the background color
-  @if (lightness($bg-color) > 50) {
-    color: #000; // Light background, return dark text color
-  } @else {
-    color: #fff; // Dark background, return light text color
-  }
-
-  // Apply the hover effect
-  &:hover {
-    $hover-color: lighten($bg-color, 10%);
-    background-color: $hover-color;
-
-    // Set the text color on hover based on the lightness of the hover background color
-    @if (lightness($hover-color) > 50) {
-      color: #000; // Light background, return dark text color
+@mixin set-button-colors($bg-color-var, $bg-color, $bg-color-light) {
+    background-color: var($bg-color-var);
+  
+    // Set the text color based on the lightness of the background color
+    @if (lightness($bg-color) > 50) {
+      color: #000; 
     } @else {
-      color: #fff; // Dark background, return light text color
+      color: #fff; 
+    }
+  
+    &:hover {
+      background-color: var(#{$bg-color-var}-light);
+  
+      @if (lightness($bg-color-light) > 50) {
+        color: #000; 
+      } @else {
+        color: #fff; 
+      }
     }
   }
-}
-@mixin set-button-outline($bg-color) {
-    border: 1px solid $bg-color;
-    color: $bg-color;
+
+  @mixin set-button-outline($bg-color-var, $bg-color, $bg-color-light) {
+    border: 1px solid var(#{$bg-color-var})!important;
+    color: #000;
     
     // Apply the hover effect
     &:hover {
-      $hover-color: darken($bg-color, 1%);
-      background-color: $hover-color;
-      box-shadow: unset!important;
+      background-color: var(#{$bg-color-var});
+    //   box-shadow: unset!important;
   
       // Set the text color on hover based on the lightness of the hover background color
-      @if (lightness($hover-color) > 50) {
+      @if (lightness($bg-color) > 50) {
         color: #000; // Light background, return dark text color
       } @else {
         color: #fff; // Dark background, return light text color
@@ -435,26 +453,21 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
-
-@each $key, $color in $theme-colors {
-  .btn-theme-#{$key} {
-    @include set-button-colors($color);
-    border: 0;
-  }
-  .btn-outline-theme-#{$key} {
-    @include set-button-outline($color);
-  }
-}
-
-@each $key, $color in $base-colors {
-  .btn-base-#{$key} {
-    @include set-button-colors($color);
-    border: 0;
-  }
-    .btn-outline-base-#{$key} {
-      @include set-button-outline($color);
+  @mixin generateButtons($colors, $class-name) {
+    @each $key, $color in $colors {
+      .btn-#{$class-name}-#{$key} {
+        @include set-button-colors(--#{$class-name}-color-#{$key}, $color, lighten($color, 10%));
+      }
     }
+    @each $key, $color in $colors {
+        .btn-outline-#{$class-name}-#{$key} {
+          @include set-button-outline(--#{$class-name}-color-#{$key}, $color, lighten($color, 10%));
+        }
+      }
   }
+  
+  @include generateButtons($theme-colors, 'theme');
+  @include generateButtons($base-colors, 'base');
 
   
 /*******************
@@ -477,6 +490,12 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
+  /*******************
+* TRANSITIONS
+******************/
+.transition\:ease {
+    transition: all .4s ease-out!important;
+}
 
 /*******************
 * BACKGROUND IMAGE
