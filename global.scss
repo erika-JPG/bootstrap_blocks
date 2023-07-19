@@ -244,7 +244,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 } 
 @for $i from 1 through 10 {
-    .w#{calc($i * 10)}-vh {
+    .w-#{calc($i * 10)}-vh {
         $size: 0vh + calc($i * 10);
         width: $size;
     }
@@ -264,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 } 
 @for $i from 1 through 10 {
-    .mw#{calc($i * 10)}-vh {
+    .mw-#{calc($i * 10)}-vh {
         $size: 0vh + calc($i * 10);
         max-width: $size;
     }

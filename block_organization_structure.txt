@@ -1,24 +1,114 @@
-|-- blocks Home
-|   |-- block type: navbar, header, footer, product card, etc
-|   |   |-- block structure:
-|   |   |   |-- navigation
-|   |   |   |   |-- horizontal navigation
-|   |   |   |   |-- vertical navigation
-|   |   |   |   |-- sticky navigation
-|   |   |   |   |-- hidden / hamburger menu
-|   |   |   |   |-- mega menu
-|   |   |   |   |-- breadcrumb navigation
-|   |   |   |   |-- pagination
-|   |   |   |   |-- parallax scrolling
-|   |   |   |   |-- card-style navigation
-|   |   |   |-- ui patterns/components
-|   |   |   |   |-- single-column
-|   |   |   |   |-- two-column
-|   |   |   |   |-- three-column
-|   |   |   |   |-- four+ column
+|-- ** Basic Blocks                                 // Components: elements
+|   |-- Text
+|   |-- Link
+|   |-- Image
+|   |-- Video
+|   |-- Map
+|   |-- Header
+|   |-- Paragraph
+|   |-- Slider
+|   |-- Columns
+|   |   |-- single-column
+|   |   |-- two-column
+|   |   |-- three-column
+|   |   |-- four+ column
+|   |-- * Icons
+|   |   |-- Credit Card Icons
+|   |   |-- Cart Icon
+|   |   |-- CVV
+|   |   |-- Rating ( star )
 
 
-|   |   |   |-- web desing
+
+|-- ** Prebuilt Blocks                              // Blocks: Collection of Components
+|   >>> Checkboxes to filter design: traditional( flat ), default( bootstrap ), modern, other( catch all ) <<<
+|   |-- * Navigation
+|   |   |-- Horizontal Navigation
+|   |   |-- Offcanvas
+|   |   |-- Vertical Navigation
+|   |   |-- Sticky Navigation
+|   |   |-- Mega Menu
+|   |   |-- Breadcrumb Navigation
+|   |   |-- Pagination
+|   |   |-- Parallax Scrolling
+|   |   |-- Card-style Navigation
+|   |-- * Heroes
+|   |-- * Product Display
+|   |   |-- Product Cards
+|   |   |-- Product Descriptions
+|   |   |-- Product Rows
+|   |-- * Engagement Content
+|   |   |-- Content Sections
+|   |   |-- Banners
+|   |   |-- Features ( benefits, guarantees, highlights )
+|   |   |-- Page Divisions ( line dividers )
+|   |   |-- Reviews
+|   |   |-- Testimonials
+|   |-- * Forms
+|   |   |-- Lead Forms 
+|   |   |-- Order Forms
+|   |   |-- Full Forms 
+|   |   |-- Upsell Form
+|   |   |-- One Click Upsell 
+|   |   |-- KNK Paypal Form ( button ) 
+|   |   |-- KNK Paypal Upsell Form ( button )
+|   |   |-- Square Checkout 
+|   |   |-- Cancel Order Form
+|   |-- * Footers
+|   |   |-- Information Rich ( corp info, links )
+|   |   |-- Copyright Bars
+|   |-- * Widgets
+|   |   |-- Random Number
+|   |   |-- Timer
+|   |   |-- Age Verify Pop
+|   |   |-- Countdown
+|   |   |-- Fomo
+|   |   |-- Popup
+|   |   |-- Surveys
+|-- ** Custom Blocks
+
+
+|-- ** Complete Pages                                   // Page: Collection of Blocks 
+|   |-- * Checkout Pages ( eg: shopify style )
+|   |-- * Support Pages
+|   |   |-- Terms & Conditions
+|   |   |-- Privacy Policy
+|   |   |-- Rules
+|   |   |-- Contact ( default style )
+|   |   |-- Cancellation ( default style )
+|   |-- * Thankyou ( default style )
+|   |   |-- Order Summary
+|   |   |-- Trial Order Summary
+|   |-- Upsell Pages
+
+
+|-- ** Subscribe ( handlebards functionality )
+|   |-- Error Message
+|   |-- Relative Date ( moment )
+|   |-- Contains
+|   |-- Contains Else
+|   |-- Cart Count 
+|   |-- Add to Cart Single
+|   |-- Add to Cart Multi
+|   |-- Remove From cart
+|   |-- Cart Summary
+
+
+|-- ** Plugin Blocks
+|   |-- Konnektive Settings and other Third Party Plugin Settings
+
+
+
+
+
+
+
+
+
+
+
+
+|-- web desing
 |   |   |   |   |   |-- minimalistic
 |   |   |   |   |   |-- modern
 |   |   |   |   |   |-- classic/traditional
