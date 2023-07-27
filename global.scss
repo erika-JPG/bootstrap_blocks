@@ -159,6 +159,65 @@ h1, h2, h3, h4, h5, h6 {
 .glass {background: rgba(255, 255, 255, 0.65);border-radius: 3px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(7.7px);-webkit-backdrop-filter: blur(7.7px);border: 1px solid rgba(255, 255, 255, 0.19);}
 
 /*******************
+* THEME BUTTONS
+******************/
+
+@mixin set-button-colors($bg-color-var, $bg-color, $bg-color-light) {
+    background-color: var($bg-color-var);
+  
+    // Set the text color based on the lightness of the background color
+    @if (lightness($bg-color) > 50) {
+      color: #000; 
+    } @else {
+      color: #fff; 
+    }
+  
+    &:hover {
+      background-color: var(#{$bg-color-var}-light);
+  
+      @if (lightness($bg-color-light) > 50) {
+        color: #000; 
+      } @else {
+        color: #fff; 
+      }
+    }
+  }
+
+  @mixin set-button-outline($bg-color-var, $bg-color, $bg-color-light) {
+    border: 1px solid var(#{$bg-color-var})!important;
+    color: #000;
+    
+    // Apply the hover effect
+    &:hover {
+      background-color: var(#{$bg-color-var});
+    //   box-shadow: unset!important;
+  
+      // Set the text color on hover based on the lightness of the hover background color
+      @if (lightness($bg-color) > 50) {
+        color: #000; // Light background, return dark text color
+      } @else {
+        color: #fff; // Dark background, return light text color
+      }
+    }
+  }
+
+  @mixin generateButtons($colors, $class-name) {
+    @each $key, $color in $colors {
+      .btn-#{$class-name}-#{$key} {
+        @include set-button-colors(--#{$class-name}-color-#{$key}, $color, lighten($color, 10%));
+      }
+    }
+    @each $key, $color in $colors {
+        .btn-outline-#{$class-name}-#{$key} {
+          @include set-button-outline(--#{$class-name}-color-#{$key}, $color, lighten($color, 10%));
+        }
+      }
+  }
+  
+  @include generateButtons($theme-colors, 'theme');
+  @include generateButtons($base-colors, 'base');
+
+/*******************
 * COLORS
 ******************/
 @mixin generateColorClasses($colors, $class-name) {
@@ -348,6 +407,7 @@ h1, h2, h3, h4, h5, h6 {
     @include extendedPosition($key, $position);
 }
 
+
 /*******************
 * HOVER AND FOCUSED STATES
 ******************/
@@ -409,66 +469,6 @@ h1, h2, h3, h4, h5, h6 {
     outline: 2px solid transparent;
     outline-offset: 2px;
 }
-
-/*******************
-* THEME BUTTONS
-******************/
-
-@mixin set-button-colors($bg-color-var, $bg-color, $bg-color-light) {
-    background-color: var($bg-color-var);
-  
-    // Set the text color based on the lightness of the background color
-    @if (lightness($bg-color) > 50) {
-      color: #000; 
-    } @else {
-      color: #fff; 
-    }
-  
-    &:hover {
-      background-color: var(#{$bg-color-var}-light);
-  
-      @if (lightness($bg-color-light) > 50) {
-        color: #000; 
-      } @else {
-        color: #fff; 
-      }
-    }
-  }
-
-  @mixin set-button-outline($bg-color-var, $bg-color, $bg-color-light) {
-    border: 1px solid var(#{$bg-color-var})!important;
-    color: #000;
-    
-    // Apply the hover effect
-    &:hover {
-      background-color: var(#{$bg-color-var});
-    //   box-shadow: unset!important;
-  
-      // Set the text color on hover based on the lightness of the hover background color
-      @if (lightness($bg-color) > 50) {
-        color: #000; // Light background, return dark text color
-      } @else {
-        color: #fff; // Dark background, return light text color
-      }
-    }
-  }
-
-  @mixin generateButtons($colors, $class-name) {
-    @each $key, $color in $colors {
-      .btn-#{$class-name}-#{$key} {
-        @include set-button-colors(--#{$class-name}-color-#{$key}, $color, lighten($color, 10%));
-      }
-    }
-    @each $key, $color in $colors {
-        .btn-outline-#{$class-name}-#{$key} {
-          @include set-button-outline(--#{$class-name}-color-#{$key}, $color, lighten($color, 10%));
-        }
-      }
-  }
-  
-  @include generateButtons($theme-colors, 'theme');
-  @include generateButtons($base-colors, 'base');
-
   
 /*******************
 * FONT WEIGHT
@@ -494,17 +494,16 @@ h1, h2, h3, h4, h5, h6 {
 * TRANSITIONS
 ******************/
 .transition\:ease {
-    transition: all .4s ease-out!important;
+    transition: all .3s ease-out!important;
 }
 
 /*******************
 * BACKGROUND IMAGE
 ******************/
-.theme-background-image {
+.theme-bg-image {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--background-image);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 

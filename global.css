@@ -42,6 +42,189 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*******************
+* THEME BUTTONS
+******************/
+.btn-theme-100 {
+  background-color: var(--theme-color-100);
+  color: #000;
+}
+.btn-theme-100:hover {
+  background-color: var(--theme-color-100-light);
+  color: #000;
+}
+
+.btn-theme-200 {
+  background-color: var(--theme-color-200);
+  color: #000;
+}
+.btn-theme-200:hover {
+  background-color: var(--theme-color-200-light);
+  color: #000;
+}
+
+.btn-theme-300 {
+  background-color: var(--theme-color-300);
+  color: #000;
+}
+.btn-theme-300:hover {
+  background-color: var(--theme-color-300-light);
+  color: #000;
+}
+
+.btn-theme-400 {
+  background-color: var(--theme-color-400);
+  color: #fff;
+}
+.btn-theme-400:hover {
+  background-color: var(--theme-color-400-light);
+  color: #000;
+}
+
+.btn-theme-500 {
+  background-color: var(--theme-color-500);
+  color: #fff;
+}
+.btn-theme-500:hover {
+  background-color: var(--theme-color-500-light);
+  color: #fff;
+}
+
+.btn-outline-theme-100 {
+  border: 1px solid var(--theme-color-100) !important;
+  color: #000;
+}
+.btn-outline-theme-100:hover {
+  background-color: var(--theme-color-100);
+  color: #000;
+}
+
+.btn-outline-theme-200 {
+  border: 1px solid var(--theme-color-200) !important;
+  color: #000;
+}
+.btn-outline-theme-200:hover {
+  background-color: var(--theme-color-200);
+  color: #000;
+}
+
+.btn-outline-theme-300 {
+  border: 1px solid var(--theme-color-300) !important;
+  color: #000;
+}
+.btn-outline-theme-300:hover {
+  background-color: var(--theme-color-300);
+  color: #000;
+}
+
+.btn-outline-theme-400 {
+  border: 1px solid var(--theme-color-400) !important;
+  color: #000;
+}
+.btn-outline-theme-400:hover {
+  background-color: var(--theme-color-400);
+  color: #fff;
+}
+
+.btn-outline-theme-500 {
+  border: 1px solid var(--theme-color-500) !important;
+  color: #000;
+}
+.btn-outline-theme-500:hover {
+  background-color: var(--theme-color-500);
+  color: #fff;
+}
+
+.btn-base-100 {
+  background-color: var(--base-color-100);
+  color: #000;
+}
+.btn-base-100:hover {
+  background-color: var(--base-color-100-light);
+  color: #000;
+}
+
+.btn-base-200 {
+  background-color: var(--base-color-200);
+  color: #000;
+}
+.btn-base-200:hover {
+  background-color: var(--base-color-200-light);
+  color: #000;
+}
+
+.btn-base-300 {
+  background-color: var(--base-color-300);
+  color: #fff;
+}
+.btn-base-300:hover {
+  background-color: var(--base-color-300-light);
+  color: #000;
+}
+
+.btn-base-400 {
+  background-color: var(--base-color-400);
+  color: #fff;
+}
+.btn-base-400:hover {
+  background-color: var(--base-color-400-light);
+  color: #fff;
+}
+
+.btn-base-500 {
+  background-color: var(--base-color-500);
+  color: #fff;
+}
+.btn-base-500:hover {
+  background-color: var(--base-color-500-light);
+  color: #fff;
+}
+
+.btn-outline-base-100 {
+  border: 1px solid var(--base-color-100) !important;
+  color: #000;
+}
+.btn-outline-base-100:hover {
+  background-color: var(--base-color-100);
+  color: #000;
+}
+
+.btn-outline-base-200 {
+  border: 1px solid var(--base-color-200) !important;
+  color: #000;
+}
+.btn-outline-base-200:hover {
+  background-color: var(--base-color-200);
+  color: #000;
+}
+
+.btn-outline-base-300 {
+  border: 1px solid var(--base-color-300) !important;
+  color: #000;
+}
+.btn-outline-base-300:hover {
+  background-color: var(--base-color-300);
+  color: #fff;
+}
+
+.btn-outline-base-400 {
+  border: 1px solid var(--base-color-400) !important;
+  color: #000;
+}
+.btn-outline-base-400:hover {
+  background-color: var(--base-color-400);
+  color: #fff;
+}
+
+.btn-outline-base-500 {
+  border: 1px solid var(--base-color-500) !important;
+  color: #000;
+}
+.btn-outline-base-500:hover {
+  background-color: var(--base-color-500);
+  color: #fff;
+}
+
+/*******************
 * COLORS
 ******************/
 .box-shadow-1 {
@@ -1297,189 +1480,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*******************
-* THEME BUTTONS
-******************/
-.btn-theme-100 {
-  background-color: var(--theme-color-100);
-  color: #000;
-}
-.btn-theme-100:hover {
-  background-color: var(--theme-color-100-light);
-  color: #000;
-}
-
-.btn-theme-200 {
-  background-color: var(--theme-color-200);
-  color: #000;
-}
-.btn-theme-200:hover {
-  background-color: var(--theme-color-200-light);
-  color: #000;
-}
-
-.btn-theme-300 {
-  background-color: var(--theme-color-300);
-  color: #000;
-}
-.btn-theme-300:hover {
-  background-color: var(--theme-color-300-light);
-  color: #000;
-}
-
-.btn-theme-400 {
-  background-color: var(--theme-color-400);
-  color: #fff;
-}
-.btn-theme-400:hover {
-  background-color: var(--theme-color-400-light);
-  color: #000;
-}
-
-.btn-theme-500 {
-  background-color: var(--theme-color-500);
-  color: #fff;
-}
-.btn-theme-500:hover {
-  background-color: var(--theme-color-500-light);
-  color: #fff;
-}
-
-.btn-outline-theme-100 {
-  border: 1px solid var(--theme-color-100) !important;
-  color: #000;
-}
-.btn-outline-theme-100:hover {
-  background-color: var(--theme-color-100);
-  color: #000;
-}
-
-.btn-outline-theme-200 {
-  border: 1px solid var(--theme-color-200) !important;
-  color: #000;
-}
-.btn-outline-theme-200:hover {
-  background-color: var(--theme-color-200);
-  color: #000;
-}
-
-.btn-outline-theme-300 {
-  border: 1px solid var(--theme-color-300) !important;
-  color: #000;
-}
-.btn-outline-theme-300:hover {
-  background-color: var(--theme-color-300);
-  color: #000;
-}
-
-.btn-outline-theme-400 {
-  border: 1px solid var(--theme-color-400) !important;
-  color: #000;
-}
-.btn-outline-theme-400:hover {
-  background-color: var(--theme-color-400);
-  color: #fff;
-}
-
-.btn-outline-theme-500 {
-  border: 1px solid var(--theme-color-500) !important;
-  color: #000;
-}
-.btn-outline-theme-500:hover {
-  background-color: var(--theme-color-500);
-  color: #fff;
-}
-
-.btn-base-100 {
-  background-color: var(--base-color-100);
-  color: #000;
-}
-.btn-base-100:hover {
-  background-color: var(--base-color-100-light);
-  color: #000;
-}
-
-.btn-base-200 {
-  background-color: var(--base-color-200);
-  color: #000;
-}
-.btn-base-200:hover {
-  background-color: var(--base-color-200-light);
-  color: #000;
-}
-
-.btn-base-300 {
-  background-color: var(--base-color-300);
-  color: #fff;
-}
-.btn-base-300:hover {
-  background-color: var(--base-color-300-light);
-  color: #000;
-}
-
-.btn-base-400 {
-  background-color: var(--base-color-400);
-  color: #fff;
-}
-.btn-base-400:hover {
-  background-color: var(--base-color-400-light);
-  color: #fff;
-}
-
-.btn-base-500 {
-  background-color: var(--base-color-500);
-  color: #fff;
-}
-.btn-base-500:hover {
-  background-color: var(--base-color-500-light);
-  color: #fff;
-}
-
-.btn-outline-base-100 {
-  border: 1px solid var(--base-color-100) !important;
-  color: #000;
-}
-.btn-outline-base-100:hover {
-  background-color: var(--base-color-100);
-  color: #000;
-}
-
-.btn-outline-base-200 {
-  border: 1px solid var(--base-color-200) !important;
-  color: #000;
-}
-.btn-outline-base-200:hover {
-  background-color: var(--base-color-200);
-  color: #000;
-}
-
-.btn-outline-base-300 {
-  border: 1px solid var(--base-color-300) !important;
-  color: #000;
-}
-.btn-outline-base-300:hover {
-  background-color: var(--base-color-300);
-  color: #fff;
-}
-
-.btn-outline-base-400 {
-  border: 1px solid var(--base-color-400) !important;
-  color: #000;
-}
-.btn-outline-base-400:hover {
-  background-color: var(--base-color-400);
-  color: #fff;
-}
-
-.btn-outline-base-500 {
-  border: 1px solid var(--base-color-500) !important;
-  color: #000;
-}
-.btn-outline-base-500:hover {
-  background-color: var(--base-color-500);
-  color: #fff;
-}
-
-/*******************
 * FONT WEIGHT
 ******************/
 .fw-100 {
@@ -1525,13 +1525,13 @@ h1, h2, h3, h4, h5, h6 {
 * TRANSITIONS
 ******************/
 .transition\:ease {
-  transition: all 0.4s ease-out !important;
+  transition: all 0.3s ease-out !important;
 }
 
 /*******************
 * BACKGROUND IMAGE
 ******************/
-.theme-background-image {
+.theme-bg-image {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--background-image);
   background-position: center;
   background-repeat: no-repeat;

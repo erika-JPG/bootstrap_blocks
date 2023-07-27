@@ -122,15 +122,3 @@
 |   |   |   |   |   |-- dark / light mode
 |   |   |   |   |-- X typography - not accounted for, variable depending on project need (not tied to block)
 |   |   |   |   |-- X colors and imagery - (not tied to block)
-
-
-
-
-
-
-
-
-
-
-
-
