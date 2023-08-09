@@ -1234,19 +1234,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*Font Size*/
-.text-sm-1 {
+.small-1 {
   font-size: 0.875rem;
 }
 
-.text-sm-2 {
+.small-2 {
   font-size: 0.75rem;
 }
 
-.text-sm-3 {
+.small-3 {
   font-size: 0.625rem;
 }
 
-.text-sm-4 {
+.small-4 {
   font-size: 0.5rem;
 }
 

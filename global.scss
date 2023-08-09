@@ -378,7 +378,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /*Font Size*/
 @for $i from 1 through 4 {
-	.text-sm-#{$i} {
+	.small-#{$i} {
 		$size: 1rem - calc($i / 8);
 		font-size: $size;
 	}
