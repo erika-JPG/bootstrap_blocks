@@ -56,7 +56,7 @@
                   </div>
                   <div class="col-md-7 col-lg-6 offset-lg-1">
                     <h4 class="mb-3">Shipping address</h4>
-                    <form id="order_form" method="post" action="" class="needs-validation">
+                    <form id="order-form" method="post" action="" class="needs-validation">
                       <div class="row g-3">
                         <div class="col-sm-6">
                           <label for="firstName" class="form-label">First name</label>
@@ -385,7 +385,7 @@
     <!-- customScripts -->
     <script>
         $(document).ready(function() {
-          var MainForm = '#order_form';
+          var MainForm = '#order-form';
           $('input[name="billShipSame"]', MainForm).change(function() {
             if ($('input[name="billShipSame"]:checked', MainForm).val() == '1') {
               $('.billing', MainForm).hide();
@@ -397,7 +397,7 @@
         });
       </script>
        <script>
-        const form = document.getElementById('order_form');
+        const form = document.getElementById('order-form');
         const eventTypes = ['blur', 'keyup', 'change'];
         const inputs = form.querySelectorAll('input:not([type="checkbox"]):not([type="radio"]), select, textarea');
         const validateField = function(field) {
