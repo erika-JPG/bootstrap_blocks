@@ -14,9 +14,12 @@ let headerContent = `<!DOCTYPE html>
           type="text/css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <link href="../global.css" rel="stylesheet">
-        <title></title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <title>title</title>
       </head>
-<body>
+      <script id="full-template" type="text/x-handlebars-template">
+        <body>
 `;
 
 let footerContent = `
@@ -25,6 +28,8 @@ let footerContent = `
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>`;
     
 const endFile = `</body>
+  </script>
+  <script src="../handlebars.js"></script>
 </html>`;
 
 const slickCss = `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"
@@ -105,5 +110,24 @@ gulp.task('add-headers-and-scripts', function() {
         .pipe(gulp.dest('blocks/'));
 });
 
+// gulp.task('runHandlebars', done => {
+//     const process = spawn('node', ['handlebars.js']);
+    
+//     process.stdout.on('data', data => {
+//         console.log(`stdout: ${data}`);
+//     });
+
+//     process.stderr.on('data', data => {
+//         console.error(`stderr: ${data}`);
+//     });
+
+//     process.on('close', code => {
+//         console.log(`Child process exited with code ${code}`);
+//         done();
+//     });
+// });
+
 gulp.task('default', gulp.series('generate-links', 'add-headers-and-scripts'));
+// gulp.task('default', gulp.series('generate-links', 'add-headers-and-scripts', 'runHandlebars'));
+
 

@@ -8,30 +8,34 @@
           type="text/css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <link href="../global.css" rel="stylesheet">
-        <title></title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <title>title</title>
       </head>
-<body>
+      <script id="full-template" type="text/x-handlebars-template">
+        <body>
 <section>
-    <div class="container">
-        <div class="py-5">
-            <div class="row text-center py-5">
-                <div class="col-12 col-md-6">
-                  <h2 class="text-center text-lg-start display-3">How We Work
-                    <br>
-                  </h2>
-                  <h2 class="display-6 text-center text-lg-start text-main">{{brandName}}
-                    <br>
-                  </h2>
-                </div>
-                <div class="col-12 col-md-6 px-lg-5 align-self-center">
-                  <p class="lead text-center text-lg-start">Explore our range of {{productName}}, to give your body the care and well-being it deserves.</p>
-                </div>
+  <div class="container">
+      <div class="py-5">
+          <div class="row text-center py-5">
+              <div class="col-12 col-md-6">
+                <h2 class="text-center text-lg-start display-3">How We Work
+                  <br>
+                </h2>
+                <h2 class="display-6 text-center text-lg-start text-main">{{brandName}}
+                  <br>
+                </h2>
               </div>
-        </div>
-    </div>
-  </section>
-    <!-- Example: Loading jQuery -->
+              <div class="col-12 col-md-6 px-lg-5 align-self-center">
+                <p class="lead text-center text-lg-start">Explore our range of {{productName}}, to give your body the care and well-being it deserves.</p>
+              </div>
+            </div>
+      </div>
+  </div>
+</section>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script></body>
+  </script>
+  <script src="../handlebars.js"></script>
 </html>
