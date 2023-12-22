@@ -7,7 +7,7 @@ var data = {
     csEmail: "help@murzap-direct.com",
     siteUrl: "VitalityZenith.club",
     billingDescriptor: "Billing 123Co",
-    brandName: "FS Funnels",
+    brandName: "Your Brand",
     csPhone: "+1 844-203-8553",
     "campaign-id": "375",
     themeCards: "visa mc disco amex ppal gpay apay",
@@ -43,18 +43,31 @@ var data = {
                     name: "Product A",
                     quantity: 2,
                     price: 100,
-                    product: "productID_A"
+                    product: "productID_A",
+                    defaultImage: {
+                        cdnUrl: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/products/a45157be-cc60-4e25-8367-2c1d9c3e3d55/keto-bottle-1.png'
+                    }
                 },
                 {
                     name: "Product B",
                     quantity: 1,
                     price: 50,
-                    product: "productID_B"
+                    product: "productID_B",
+                    defaultImage: {
+                        cdnUrl: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/products/555f33b5-f951-4559-bedc-de4cc6afad6b/keto-bottle-2.png'
+                    }
                 },
                 // ... additional products
             ]
         },
-        'sf-error-message': 'This is an error message'
+    'sf-error-message': 'This is an error message',
+    "sf-product": {
+        "p_1": {
+            name: "Product One",
+            price: "1.11", 
+
+        }
+    }
     };
 
     // INITAL COMPUTATIONS

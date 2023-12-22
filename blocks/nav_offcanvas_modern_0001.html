@@ -10,97 +10,95 @@
         <link href="../global.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-        <title>title</title>
+        <title>nav_offcanvas_modern_0001</title>
       </head>
       <script id="full-template" type="text/x-handlebars-template">
         <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-theme-500 sticky-top">
-    <div class="container">
-      <a href="#" class="navbar-brand d-block brand-logo">
-        <h2 class="theme-txt-color">{{brandName}}</h2>
-      </a>
-      <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-2" aria-controls="navbarSupportedContent-2" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div id="navbarSupportedContent-2" class="collapse navbar-collapse">
-        <ul class="navbar-nav me-auto mx-lg-auto mb-2 mb-lg-0 pe-lg-5">
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 theme-txt-color">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 theme-txt-color">Products</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 theme-txt-color">Cart</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 theme-txt-color">Terms</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 theme-txt-color">Privacy</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 theme-txt-color me-lg-5">Contact</a>
-          </li>
-        </ul>
-        <div class="d-none d-lg-block text-end pe-3">
-          <a href="#" role="button" class="h5 text-decoration-none text-theme-100 hover:text-theme-200 transition:ease me-2">
-            <i data-gjs-type="icon" class="bi bi-person-circle"></i>
-          </a>
-          <a role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" class="position-relative h5 text-decoration-none text-theme-100 hover:text-theme-200 transition:ease">
-            <i data-gjs-type="icon" class="bi bi-cart3"></i>
-            <div id="i849h" class="position-absolute rounded-circle bg-theme-200 text-white d-flex align-items-center justify-content-center lh-sm small-2">
-              <span>{{cart.items.length}}</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <div>
-    <div data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" class="offcanvas offcanvas-end">
-      <div class="offcanvas-body position-relative d-flex flex-column">
-        <button type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="btn-close position-absolute top-0 end-0 mt-3 me-3"></button>
-        <div class="row">
-          <p class="h4 pt-3 fw-bold mb-4"> Shopping Cart</p>
-        </div>
-        {{#each cart.items}}
-          <div class="row g-0 py-3 border-top border-main align-items-center">
-            <div class="col-3 p-1 bg-white border d-flex justify-content-center align-items-center me-2">
-              <img src="{{defaultImage.cdnUrl}}" class="img-fluid" />
-            </div>
-            <div class="col-4">
-              <p class="small mb-0">{{name}}</p>
-            </div>
-            <div class="col-2 text-center">
-              <p class="small mb-0">{{quantity}}</p>
-            </div>
-            <div class="ms-auto col-2 text-end">
-              <p class="small mb-0">${{toFixed price 2}}</p>
-            </div>
-          </div>
-        {{/each}}
-        {{#if cart.items.length}}
-          <div class="small pt-2 border-top border-main">
-            <p class="d-flex justify-content-between py-3">Subtotal:
-              <span class="fw-bold ms-auto">${{toFixed cart.total 2}}</span>
-            </p>
-          </div>
-        {{/if}}
-        <a href="#" class="mt-auto btn btn-lg col-12 mb-3 fs-5 py-3 btn-outline-theme-200 hover:box-shadow-2">
-          <i aria-hidden="true" data-gjs-type="icon" class="bi bi-chevron-double-right fw-bold me-2"></i>View Cart
+  <div class="container">
+    <a href="#" class="navbar-brand d-block brand-logo">
+      <h2 class="theme-txt-color">{{brandName}}</h2>
+    </a>
+    <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-2" aria-controls="navbarSupportedContent-2" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarSupportedContent-2" class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mx-lg-auto mb-2 mb-lg-0 pe-lg-5">
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 theme-txt-color">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 theme-txt-color">Products</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 theme-txt-color">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 theme-txt-color">Terms</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 theme-txt-color">Privacy</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 theme-txt-color me-lg-5">Contact</a>
+        </li>
+      </ul>
+      <div class="d-none d-lg-block text-end pe-3">
+        <a href="#" role="button" class="h5 text-decoration-none text-theme-100 hover:text-theme-200 transition:ease me-2">
+          <i data-gjs-type="icon" class="bi bi-person-circle"></i>
         </a>
-        <a href="#" class="btn btn-lg col-12 mb-3 fs-5 py-3 btn-theme-500">
-          <i data-gjs-type="icon" class="bi bi-chevron-double-right fw-bold me-2"></i> Checkout
+        <a role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" class="position-relative h5 text-decoration-none text-theme-100 hover:text-theme-200 transition:ease">
+          <i data-gjs-type="icon" class="bi bi-cart3"></i>
+          <div id="i849h" class="position-absolute top-0 start-100 rounded-circle bg-theme-200 text-white d-flex align-items-center justify-content-center lh-sm small-2" style="width:15px; height: 15px;">
+            <span>{{cart.items.length}}</span>
+          </div>
         </a>
       </div>
     </div>
   </div>
+</nav>
+<div>
+  <div data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" class="offcanvas offcanvas-end">
+    <div class="offcanvas-body position-relative d-flex flex-column">
+      <button type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="btn-close position-absolute top-0 end-0 mt-3 me-3"></button>
+      <div class="row">
+        <p class="h4 pt-3 fw-bold mb-4"> Shopping Cart</p>
+      </div>
+      {{#each cart.items}}
+        <div class="row g-0 py-3 border-top border-main align-items-center">
+          <div class="col-3 p-1 bg-white border d-flex justify-content-center align-items-center me-2">
+            <img src="{{defaultImage.cdnUrl}}" class="img-fluid" />
+          </div>
+          <div class="col-4">
+            <p class="small mb-0">{{name}}</p>
+          </div>
+          <div class="col-2 text-center">
+            <p class="small mb-0">{{quantity}}</p>
+          </div>
+          <div class="ms-auto col-2 text-end">
+            <p class="small mb-0">${{toFixed price 2}}</p>
+          </div>
+        </div>
+      {{/each}}
+      {{#if cart.items.length}}
+        <div class="small pt-2 border-top border-main">
+          <p class="d-flex justify-content-between py-3">Subtotal:
+            <span class="fw-bold ms-auto">${{toFixed cart.total 2}}</span>
+          </p>
+        </div>
+      {{/if}}
+      <a href="#" class="mt-auto btn btn-lg col-12 mb-3 fs-5 py-3 btn-outline-theme-200 hover:box-shadow-2">
+        <i aria-hidden="true" data-gjs-type="icon" class="bi bi-chevron-double-right fw-bold me-2"></i>View Cart
+      </a>
+      <a href="#" class="btn btn-lg col-12 mb-3 fs-5 py-3 btn-theme-500">
+        <i data-gjs-type="icon" class="bi bi-chevron-double-right fw-bold me-2"></i> Checkout
+      </a>
+    </div>
+  </div>
+</div></body>
+  </script>
+  <script src="../handlebars.js"></script>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script></body>
-  </script>
-  <script src="../handlebars.js"></script>
-</html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script></html>

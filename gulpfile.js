@@ -3,6 +3,8 @@ const replace = require('gulp-replace');
 const inject = require('gulp-inject-string');
 const gulpIf = require('gulp-if');
 const fs = require('fs');
+const tap = require('gulp-tap');
+const path = require('path');
 
 let headerContent = `<!DOCTYPE html>
 <html lang="en">
@@ -16,7 +18,7 @@ let headerContent = `<!DOCTYPE html>
         <link href="../global.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-        <title>title</title>
+        <title>{{title}}</title>
       </head>
       <script id="full-template" type="text/x-handlebars-template">
         <body>
@@ -27,10 +29,12 @@ let footerContent = `
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>`;
     
-const endFile = `</body>
+const handlebars = `</body>
   </script>
   <script src="../handlebars.js"></script>
-</html>`;
+`;
+
+const endFile = `</html>`;
 
 const slickCss = `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"
 integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
@@ -54,6 +58,9 @@ function hasCustomScripts(file) {
 }
 function hasEndoFile(file) { 
     return file.contents.toString('utf8').includes(`</body>`);
+}
+function hasEndofDoc(file) { 
+    return file.contents.toString('utf8').includes(`</html>`)
 }
 function needsSlickCss(file) { 
     return file.contents.toString('utf-8').includes('<!-- slick css -->') && !file.contents.toString('utf-8').includes('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css');
@@ -101,14 +108,22 @@ gulp.task('generate-links', function() {
 
 gulp.task('add-headers-and-scripts', function() {
     return gulp.src('blocks/*.html')
-        .pipe(gulpIf(file => !hasHeader(file), inject.prepend(headerContent)))
-        .pipe(gulpIf(file => needsSlickCss(file), replace('<!-- slick css -->', '<!-- slick css -->' +  slickCss )))
+        .pipe(tap(function (file) {
+        if (!hasHeader(file)) {
+            const filename = path.basename(file.path, '.html');
+            file.contents = Buffer.from(headerContent.replace('{{title}}', filename) + file.contents.toString());
+        }
+    }))
+        .pipe(gulpIf(file => needsSlickCss(file), replace('<!-- slick css -->', '<!-- slick css -->' + slickCss)))
+        .pipe(gulpIf(file => !hasEndoFile(file), inject.append(handlebars)))
         .pipe(gulpIf(file => needsSlickJs(file), replace('<!-- slick js -->', '<!-- slick js -->' + slickJs )))
         .pipe(gulpIf(file => hasCustomScripts(file) && !hasFooter(file), replace('<!-- customScripts -->', footerContent + '<!-- customScripts -->')))
         .pipe(gulpIf(file => !hasFooter(file) && !hasCustomScripts(file), inject.append(footerContent)))
-        .pipe(gulpIf(file => !hasEndoFile(file), inject.append(endFile)))
+        .pipe(gulpIf(file => !hasEndofDoc(file), inject.append(endFile)))
         .pipe(gulp.dest('blocks/'));
 });
+
+// .pipe(gulpIf(file => !hasHeader(file), inject.prepend(headerContent)))
 
 // gulp.task('runHandlebars', done => {
 //     const process = spawn('node', ['handlebars.js']);
