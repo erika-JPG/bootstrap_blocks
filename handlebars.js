@@ -65,6 +65,17 @@ var data = {
         "p_1": {
             name: "Product One",
             price: "1.11", 
+            defaultImage: {
+                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/products/a45157be-cc60-4e25-8367-2c1d9c3e3d55/keto-bottle-1.png'
+            }
+
+        },
+        "p_2": {
+            name: "Product Two",
+            price: "2.22", 
+            defaultImage: {
+                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/products/555f33b5-f951-4559-bedc-de4cc6afad6b/keto-bottle-2.png'
+            }
 
         }
     }

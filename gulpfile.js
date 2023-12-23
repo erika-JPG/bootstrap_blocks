@@ -80,28 +80,28 @@ gulp.task('generate-links', function() {
     // Reading all files from the blocks directory
     fs.readdirSync('blocks/').forEach(filename => {
         if (filename.startsWith('nav_') && filename.endsWith('.html')) {
-            navLinks += `<li><a href="blocks/${filename}">${filename}</a></li>\n`;
+            navLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
         } else if (filename.startsWith('hero_') && filename.endsWith('.html')) {
-            heroLinks += `<li><a href="blocks/${filename}">${filename}</a></li>\n`;
+            heroLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
         } else if (filename.startsWith('prd_') && filename.endsWith('.html')) {
-            prdsLinks += `<li><a href="blocks/${filename}">${filename}</a></li>\n`;
+            prdsLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
         } else if (filename.startsWith('form_') && filename.endsWith('.html')) {
-            formLinks += `<li><a href="blocks/${filename}">${filename}</a></li>\n`;
+            formLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
         } else if (filename.startsWith('div_') && filename.endsWith('.html')) {
-            divsLinks += `<li><a href="blocks/${filename}">${filename}</a></li>\n`;
+            divsLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
         } else if (filename.startsWith('foot_') && filename.endsWith('.html')) {
-            footLinks += `<li><a href="blocks/${filename}">${filename}</a></li>\n`;
+            footLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
         }
     });
 
     // Finding the specific containers in blocks.html and replacing their content
     return gulp.src('blocks.html')
-        .pipe(replace(/(<div id="nav">)[\s\S]*?(<\/div>)/, `$1\n<ul>\n${navLinks}</ul>\n$2`))
-        .pipe(replace(/(<div id="hero">)[\s\S]*?(<\/div>)/, `$1\n<ul>\n${heroLinks}</ul>\n$2`))
-        .pipe(replace(/(<div id="prds">)[\s\S]*?(<\/div>)/, `$1\n<ul>\n${prdsLinks}</ul>\n$2`))
-        .pipe(replace(/(<div id="form">)[\s\S]*?(<\/div>)/, `$1\n<ul>\n${formLinks}</ul>\n$2`))
-        .pipe(replace(/(<div id="divs">)[\s\S]*?(<\/div>)/, `$1\n<ul>\n${divsLinks}</ul>\n$2`))
-        .pipe(replace(/(<div id="foot">)[\s\S]*?(<\/div>)/, `$1\n<ul>\n${footLinks}</ul>\n$2`))
+        .pipe(replace(/(<div id="nav">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${navLinks}</ul>\n$2`))
+        .pipe(replace(/(<div id="hero">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${heroLinks}</ul>\n$2`))
+        .pipe(replace(/(<div id="prds">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${prdsLinks}</ul>\n$2`))
+        .pipe(replace(/(<div id="form">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${formLinks}</ul>\n$2`))
+        .pipe(replace(/(<div id="divs">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${divsLinks}</ul>\n$2`))
+        .pipe(replace(/(<div id="foot">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${footLinks}</ul>\n$2`))
         .pipe(gulp.dest('./')); 
 });
 
