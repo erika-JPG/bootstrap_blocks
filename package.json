@@ -17,7 +17,9 @@
   "devDependencies": {
     "gulp-if": "^3.0.0",
     "gulp-inject-string": "^1.1.2",
-    "gulp-tap": "^2.0.0"
+    "gulp-sass": "^5.1.0",
+    "gulp-tap": "^2.0.0",
+    "sass": "^1.69.5"
   },
   "repository": {
     "type": "git",

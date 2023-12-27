@@ -5,6 +5,7 @@ const gulpIf = require('gulp-if');
 const fs = require('fs');
 const tap = require('gulp-tap');
 const path = require('path');
+const sass = require('gulp-sass')(require('sass'));
 
 let headerContent = `<!DOCTYPE html>
 <html lang="en">
@@ -45,6 +46,12 @@ const slickJs = `<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carou
 integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
 crossorigin="anonymous" referrerpolicy="no-referrer"></script>`;
 
+gulp.task('compile-me', function() {
+    return gulp.src('global.scss') // Adjust the path to your SCSS file
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('global.css')); // Set the destination to the same folder as your SCSS file
+});
+
 function hasHeader(file) {
     return file.contents.toString('utf8').includes('<!DOCTYPE html>');
 }
@@ -70,40 +77,107 @@ function needsSlickJs(file) {
 }
 
 gulp.task('generate-links', function() {
-    let navLinks = '';
-    let heroLinks = '';
-    let prdsLinks = '';
-    let formLinks = '';
-    let divsLinks = '';
-    let footLinks = '';
+    let navTraditional = '', navModern = '', navDefault = '', navOther = '';
+    let heroTraditional = '', heroModern = '', heroDefault = '', heroOther = '';
+    let prdTraditional = '', prdModern = '', prdDefault = '', prdOther = '';
+    let formTraditional = '', formModern = '', formDefault = '', formOther = '';
+    let dividerTraditional = '', dividerModern = '', dividerDefault = '', dividerOther = '';
+    let footerTraditional = '', footerModern = '', footerDefault = '', footerOther = '';
+    
 
-    // Reading all files from the blocks directory
+   
     fs.readdirSync('blocks/').forEach(filename => {
+        let link = `<a class="list-group-item" target="_blank" href="blocks/${filename}">${filename}</a>\n`;
+
         if (filename.startsWith('nav_') && filename.endsWith('.html')) {
-            navLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
+            if (filename.includes('trad')) navTraditional += link;
+            else if (filename.includes('modern')) navModern += link;
+            else navOther += link; 
         } else if (filename.startsWith('hero_') && filename.endsWith('.html')) {
-            heroLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
+            if (filename.includes('trad')) heroTraditional += link;
+            else if (filename.includes('modern')) heroModern += link;
+            else heroOther += link; 
         } else if (filename.startsWith('prd_') && filename.endsWith('.html')) {
-            prdsLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
+            if (filename.includes('trad')) prdTraditional += link;
+            else if (filename.includes('modern')) prdModern += link;
+            else prdOther += link; 
         } else if (filename.startsWith('form_') && filename.endsWith('.html')) {
-            formLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
+            if (filename.includes('trad')) formTraditional += link;
+            else if (filename.includes('modern')) formModern += link;
+            else formOther += link; 
         } else if (filename.startsWith('div_') && filename.endsWith('.html')) {
-            divsLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
+            if (filename.includes('trad')) dividerTraditional += link;
+            else if (filename.includes('modern')) dividerModern += link;
+            else dividerOther += link; 
         } else if (filename.startsWith('foot_') && filename.endsWith('.html')) {
-            footLinks += `<li><a class="list-group-item" href="blocks/${filename}">${filename}</a></li>\n`;
+            if (filename.includes('trad')) footerTraditional += link;
+            else if (filename.includes('modern')) footerModern += link;
+            else footerOther += link; 
         }
     });
 
-    // Finding the specific containers in blocks.html and replacing their content
+    // Generate HTML for each section
+    function generateSectionHtml(sectionName, links) {
+        return links ? `<div class="text-center col-md-3 mb-5"><h4>${sectionName}</h4><div class="${sectionName.toLowerCase()}">${links}</div></div>` : '';
+    }
+
+    // Replace the entire content of each section
     return gulp.src('blocks.html')
-        .pipe(replace(/(<div id="nav">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${navLinks}</ul>\n$2`))
-        .pipe(replace(/(<div id="hero">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${heroLinks}</ul>\n$2`))
-        .pipe(replace(/(<div id="prds">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${prdsLinks}</ul>\n$2`))
-        .pipe(replace(/(<div id="form">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${formLinks}</ul>\n$2`))
-        .pipe(replace(/(<div id="divs">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${divsLinks}</ul>\n$2`))
-        .pipe(replace(/(<div id="foot">)[\s\S]*?(<\/div>)/, `$1\n<ul class="list-group list-unstyled">\n${footLinks}</ul>\n$2`))
-        .pipe(gulp.dest('./')); 
+    .pipe(replace(/<!-- Start Navbar Section -->[\s\S]*?<!-- End Navbar Section -->/, 
+    `<!-- Start Navbar Section -->\n<div id="Navbar" class="row">` +
+    generateSectionHtml('Traditional', navTraditional) +
+    generateSectionHtml('Modern', navModern) +
+    generateSectionHtml('Default', navDefault) +
+    generateSectionHtml('Other', navOther) +
+    `</div>\n<!-- End Navbar Section -->`))
+        .pipe(replace(/<!-- Start Hero Section -->[\s\S]*?<!-- End Hero Section -->/, 
+            `<!-- Start Hero Section -->\n<div id="hero" class="row">` +
+            generateSectionHtml('Traditional', heroTraditional) +
+            generateSectionHtml('Modern', heroModern) +
+            generateSectionHtml('Default', heroDefault) +
+            generateSectionHtml('Other', heroOther) +
+            `</div>\n<!-- End Hero Section -->`))
+            .pipe(replace(/<!-- Start Product Section -->[\s\S]*?<!-- End Product Section -->/, 
+            `<!-- Start Product Section -->\n<div id="prd" class="row">` +
+            generateSectionHtml('Traditional', prdTraditional) +
+            generateSectionHtml('Modern', prdModern) +
+            generateSectionHtml('Default', prdDefault) +
+            generateSectionHtml('Other', prdOther) +
+                `</div>\n<!-- End Product Section -->`))
+                .pipe(replace(/<!-- Start Forms Section -->[\s\S]*?<!-- End Forms Section -->/, 
+                `<!-- Start Forms Section -->\n<div id="form" class="row">` +
+                generateSectionHtml('Traditional', formTraditional) +
+                generateSectionHtml('Modern', formModern) +
+                generateSectionHtml('Default', formDefault) +
+                generateSectionHtml('Other', formOther) +
+                    `</div>\n<!-- End Forms Section -->`))
+                    .pipe(replace(/<!-- Start Dividers Section -->[\s\S]*?<!-- End Dividers Section -->/, 
+                    `<!-- Start Dividers Section -->\n<div id="div" class="row">` +
+                    generateSectionHtml('Traditional', dividerTraditional) +
+                    generateSectionHtml('Modern', dividerModern) +
+                    generateSectionHtml('Default', dividerDefault) +
+                    generateSectionHtml('Other', dividerOther) +
+                        `</div>\n<!-- End Dividers Section -->`))
+                        .pipe(replace(/<!-- Start Dividers Section -->[\s\S]*?<!-- End Dividers Section -->/, 
+                        `<!-- Start Dividers Section -->\n<div id="div" class="row">` +
+                        generateSectionHtml('Traditional', dividerTraditional) +
+                        generateSectionHtml('Modern', dividerModern) +
+                        generateSectionHtml('Default', dividerDefault) +
+                        generateSectionHtml('Other', dividerOther) +
+                            `</div>\n<!-- End Dividers Section -->`))
+                            .pipe(replace(/<!-- Start Footer Section -->[\s\S]*?<!-- End Footer Section -->/, 
+                            `<!-- Start Footer Section -->\n<div id="foot" class="row">` +
+                            generateSectionHtml('Traditional', footerTraditional) +
+                            generateSectionHtml('Modern', footerModern) +
+                            generateSectionHtml('Default', footerDefault) +
+                            generateSectionHtml('Other', footerOther) +
+                            `</div>\n<!-- End Footer Section -->`))
+        
+        .pipe(gulp.dest('./'));
+
 });
+
+
 
 
 gulp.task('add-headers-and-scripts', function() {
@@ -123,26 +197,6 @@ gulp.task('add-headers-and-scripts', function() {
         .pipe(gulp.dest('blocks/'));
 });
 
-// .pipe(gulpIf(file => !hasHeader(file), inject.prepend(headerContent)))
-
-// gulp.task('runHandlebars', done => {
-//     const process = spawn('node', ['handlebars.js']);
-    
-//     process.stdout.on('data', data => {
-//         console.log(`stdout: ${data}`);
-//     });
-
-//     process.stderr.on('data', data => {
-//         console.error(`stderr: ${data}`);
-//     });
-
-//     process.on('close', code => {
-//         console.log(`Child process exited with code ${code}`);
-//         done();
-//     });
-// });
-
 gulp.task('default', gulp.series('generate-links', 'add-headers-and-scripts'));
-// gulp.task('default', gulp.series('generate-links', 'add-headers-and-scripts', 'runHandlebars'));
 
 
