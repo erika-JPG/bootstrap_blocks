@@ -77,112 +77,48 @@ function needsSlickJs(file) {
 }
 
 gulp.task('generate-links', function() {
-    let navTraditional = '', navModern = '', navDefault = '', navOther = '';
-    let heroTraditional = '', heroModern = '', heroDefault = '', heroOther = '';
-    let prdTraditional = '', prdModern = '', prdDefault = '', prdOther = '';
-    let formTraditional = '', formModern = '', formDefault = '', formOther = '';
-    let dividerTraditional = '', dividerModern = '', dividerDefault = '', dividerOther = '';
-    let footerTraditional = '', footerModern = '', footerDefault = '', footerOther = '';
-    
+    const sections = [
+        { type: 'nav', name:'Navbar', traditional: '', modern: '', default: '', other: '' },
+        { type: 'hero', name:'Hero', traditional: '', modern: '', default: '', other: '' },
+        { type: 'prd', name: 'Product', traditional: '', modern: '', default: '', other: '' },
+        { type: 'form', name: 'Forms', traditional: '', modern: '', default: '', other: '' },
+        { type: 'div', name: 'Dividers', traditional: '', modern: '', default: '', other: '' },
+        { type: 'foot', name: 'Footer', traditional: '', modern: '', default: '', other: '' },
+        { type: 'carousel', name:'Carousels', traditional: '', modern: '', default: '', other: '' },
+        // ... add other sections here
+    ];
 
-   
     fs.readdirSync('blocks/').forEach(filename => {
         let link = `<a class="list-group-item" target="_blank" href="blocks/${filename}">${filename}</a>\n`;
-
-        if (filename.startsWith('nav_') && filename.endsWith('.html')) {
-            if (filename.includes('trad')) navTraditional += link;
-            else if (filename.includes('modern')) navModern += link;
-            else if (filename.includes('default')) navDefault += link;
-            else navOther += link; 
-        } else if (filename.startsWith('hero_') && filename.endsWith('.html')) {
-            if (filename.includes('trad')) heroTraditional += link;
-            else if (filename.includes('modern')) heroModern += link;
-            else if (filename.includes('default')) heroDefault += link;
-            else heroOther += link; 
-        } else if (filename.startsWith('prd_') && filename.endsWith('.html')) {
-            if (filename.includes('trad')) prdTraditional += link;
-            else if (filename.includes('modern')) prdModern += link;
-            else if (filename.includes('default')) prdDefault += link;
-            else prdOther += link; 
-        } else if (filename.startsWith('form_') && filename.endsWith('.html')) {
-            if (filename.includes('trad')) formTraditional += link;
-            else if (filename.includes('modern')) formModern += link;
-            else if (filename.includes('default')) formDefault += link;
-            else formOther += link; 
-        } else if (filename.startsWith('div_') && filename.endsWith('.html')) {
-            if (filename.includes('trad')) dividerTraditional += link;
-            else if (filename.includes('modern')) dividerModern += link;
-            else if (filename.includes('default')) dividerDefault += link;
-            else dividerOther += link; 
-        } else if (filename.startsWith('foot_') && filename.endsWith('.html')) {
-            if (filename.includes('trad')) footerTraditional += link;
-            else if (filename.includes('modern')) footerModern += link;
-            else if (filename.includes('default')) footerDefault += link;
-            else footerOther += link; 
-        }
+        sections.forEach(section => {
+            if (filename.startsWith(`${section.type}_`) && filename.endsWith('.html')) {
+                if (filename.includes('trad')) section.traditional += link;
+                else if (filename.includes('modern')) section.modern += link;
+                else if (filename.includes('default')) section.default += link;
+                else section.other += link;
+            }
+        });
     });
 
-    // Generate HTML for each section
-    function generateSectionHtml(sectionName, links) {
-        return links ? `<div class="text-center col-md-3 mb-5"><h4>${sectionName}</h4><div class="${sectionName.toLowerCase()}">${links}</div></div>` : '';
+    function generateSectionHtml(style, links) {
+        return links ? `<div class="text-center col-md-3 mb-5"><h4>${style}</h4><div class="${style.toLowerCase()}">${links}</div></div>` : '';
     }
 
-    // Replace the entire content of each section
-    return gulp.src('blocks.html')
-    .pipe(replace(/<!-- Start Navbar Section -->[\s\S]*?<!-- End Navbar Section -->/, 
-    `<!-- Start Navbar Section -->\n<div id="Navbar" class="row">` +
-    generateSectionHtml('Traditional', navTraditional) +
-    generateSectionHtml('Modern', navModern) +
-    generateSectionHtml('Default', navDefault) +
-    generateSectionHtml('Other', navOther) +
-    `</div>\n<!-- End Navbar Section -->`))
-        .pipe(replace(/<!-- Start Hero Section -->[\s\S]*?<!-- End Hero Section -->/, 
-            `<!-- Start Hero Section -->\n<div id="hero" class="row">` +
-            generateSectionHtml('Traditional', heroTraditional) +
-            generateSectionHtml('Modern', heroModern) +
-            generateSectionHtml('Default', heroDefault) +
-            generateSectionHtml('Other', heroOther) +
-            `</div>\n<!-- End Hero Section -->`))
-            .pipe(replace(/<!-- Start Product Section -->[\s\S]*?<!-- End Product Section -->/, 
-            `<!-- Start Product Section -->\n<div id="prd" class="row">` +
-            generateSectionHtml('Traditional', prdTraditional) +
-            generateSectionHtml('Modern', prdModern) +
-            generateSectionHtml('Default', prdDefault) +
-            generateSectionHtml('Other', prdOther) +
-                `</div>\n<!-- End Product Section -->`))
-                .pipe(replace(/<!-- Start Forms Section -->[\s\S]*?<!-- End Forms Section -->/, 
-                `<!-- Start Forms Section -->\n<div id="form" class="row">` +
-                generateSectionHtml('Traditional', formTraditional) +
-                generateSectionHtml('Modern', formModern) +
-                generateSectionHtml('Default', formDefault) +
-                generateSectionHtml('Other', formOther) +
-                    `</div>\n<!-- End Forms Section -->`))
-                    .pipe(replace(/<!-- Start Dividers Section -->[\s\S]*?<!-- End Dividers Section -->/, 
-                    `<!-- Start Dividers Section -->\n<div id="div" class="row">` +
-                    generateSectionHtml('Traditional', dividerTraditional) +
-                    generateSectionHtml('Modern', dividerModern) +
-                    generateSectionHtml('Default', dividerDefault) +
-                    generateSectionHtml('Other', dividerOther) +
-                        `</div>\n<!-- End Dividers Section -->`))
-                        .pipe(replace(/<!-- Start Dividers Section -->[\s\S]*?<!-- End Dividers Section -->/, 
-                        `<!-- Start Dividers Section -->\n<div id="div" class="row">` +
-                        generateSectionHtml('Traditional', dividerTraditional) +
-                        generateSectionHtml('Modern', dividerModern) +
-                        generateSectionHtml('Default', dividerDefault) +
-                        generateSectionHtml('Other', dividerOther) +
-                            `</div>\n<!-- End Dividers Section -->`))
-                            .pipe(replace(/<!-- Start Footer Section -->[\s\S]*?<!-- End Footer Section -->/, 
-                            `<!-- Start Footer Section -->\n<div id="foot" class="row">` +
-                            generateSectionHtml('Traditional', footerTraditional) +
-                            generateSectionHtml('Modern', footerModern) +
-                            generateSectionHtml('Default', footerDefault) +
-                            generateSectionHtml('Other', footerOther) +
-                            `</div>\n<!-- End Footer Section -->`))
-        
-        .pipe(gulp.dest('./'));
+    let stream = gulp.src('blocks.html');
+    sections.forEach(section => {
+        const sectionHtml = `<!-- Start ${section.name} Section -->\n<div id="${section.type}" class="row">` +
+            generateSectionHtml('Traditional', section.traditional) +
+            generateSectionHtml('Modern', section.modern) +
+            generateSectionHtml('Default', section.default) +
+            generateSectionHtml('Other', section.other) +
+            `</div>\n<!-- End ${section.name} Section -->`;
+        console.log(sectionHtml);
+        const regex = new RegExp(`<!-- Start ${section.name} Section -->[\\s\\S]*?<!-- End ${section.name} Section -->`, 'g');
+        stream = stream.pipe(replace(regex, sectionHtml));
+    });
 
+    return stream.pipe(gulp.dest('./'));
 });
-
 
 
 

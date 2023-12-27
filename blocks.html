@@ -17,7 +17,7 @@
         <div class="container d-none" data-sf-navs>
         <h1 class="text-center mb-5 py-5 border-bottom shadow-sm">Navbars</h1>
         <!-- Start Navbar Section -->
-<div id="Navbar" class="row"><div class="text-center col-md-3 mb-5"><h4>Traditional</h4><div class="traditional"><a class="list-group-item" target="_blank" href="blocks/nav_horizontal_trad_0001.html">nav_horizontal_trad_0001.html</a>
+<div id="nav" class="row"><div class="text-center col-md-3 mb-5"><h4>Traditional</h4><div class="traditional"><a class="list-group-item" target="_blank" href="blocks/nav_horizontal_trad_0001.html">nav_horizontal_trad_0001.html</a>
 <a class="list-group-item" target="_blank" href="blocks/nav_horizontal_trad_0002.html">nav_horizontal_trad_0002.html</a>
 </div></div><div class="text-center col-md-3 mb-5"><h4>Modern</h4><div class="modern"><a class="list-group-item" target="_blank" href="blocks/nav_offcanvas_modern_0001.html">nav_offcanvas_modern_0001.html</a>
 </div></div></div>
@@ -63,8 +63,7 @@
 </div></div><div class="text-center col-md-3 mb-5"><h4>Modern</h4><div class="modern"><a class="list-group-item" target="_blank" href="blocks/div_content_modern_0001.html">div_content_modern_0001.html</a>
 <a class="list-group-item" target="_blank" href="blocks/div_icons_modern_0001.html">div_icons_modern_0001.html</a>
 <a class="list-group-item" target="_blank" href="blocks/div_testimonial_modern_0001.html">div_testimonial_modern_0001.html</a>
-</div></div><div class="text-center col-md-3 mb-5"><h4>Default</h4><div class="default"><a class="list-group-item" target="_blank" href="blocks/div_content_default_0001.html">div_content_default_0001.html</a>
-<a class="list-group-item" target="_blank" href="blocks/div_features_default_0001.html">div_features_default_0001.html</a>
+</div></div><div class="text-center col-md-3 mb-5"><h4>Default</h4><div class="default"><a class="list-group-item" target="_blank" href="blocks/div_features_default_0001.html">div_features_default_0001.html</a>
 <a class="list-group-item" target="_blank" href="blocks/div_features_default_0002.html">div_features_default_0002.html</a>
 </div></div></div>
 <!-- End Dividers Section -->
@@ -96,7 +95,6 @@
         crossorigin="anonymous"></script>
         <script>const url = new URL(window.location.href);
             const blockValue = url.searchParams.get("block");
-            console.log(blockValue);
         document.querySelector(`[data-sf-${blockValue}]`).classList.remove('d-none');
             </script>
 </body>

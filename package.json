@@ -19,7 +19,8 @@
     "gulp-inject-string": "^1.1.2",
     "gulp-sass": "^5.1.0",
     "gulp-tap": "^2.0.0",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "through2": "^4.0.2"
   },
   "repository": {
     "type": "git",
