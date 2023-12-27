@@ -66,7 +66,7 @@ var data = {
             name: "Product One",
             price: "1.11", 
             defaultImage: {
-                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/products/a45157be-cc60-4e25-8367-2c1d9c3e3d55/keto-bottle-1.png'
+                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/acv-bottle-1.png'
             }
 
         },
@@ -74,9 +74,45 @@ var data = {
             name: "Product Two",
             price: "2.22", 
             defaultImage: {
-                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/products/555f33b5-f951-4559-bedc-de4cc6afad6b/keto-bottle-2.png'
+                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/diet-bottle-2.png'
             }
-
+        }
+        ,
+        "p_3": {
+            name: "Product Three",
+            price: "3.33", 
+            defaultImage: {
+                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/acv-bottle-3.png'
+            }
+        },
+        "p_4": {
+            name: "Product Four",
+            price: "4.44", 
+            defaultImage: {
+                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/diet-bottle-4.png'
+            }
+        },
+        "p_5": {
+            name: "Product Five",
+            price: "5.55", 
+            defaultImage: {
+                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/diet-bottle-5.png'
+            }
+        }
+        ,
+        "p_6": {
+            name: "Product Six",
+            price: "6.66", 
+            defaultImage: {
+                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/diet-bottle-6.png'
+            }
+        },
+        "p_7": {
+            name: "Product Seven",
+            price: "7.77", 
+            defaultImage: {
+                url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/diet-bottle-7.png'
+            }
         }
     }
     };

@@ -5,7 +5,7 @@ const gulpIf = require('gulp-if');
 const fs = require('fs');
 const tap = require('gulp-tap');
 const path = require('path');
-const sass = require('gulp-sass')(require('sass'));
+// const sass = require('gulp-sass')(require('sass'));
 
 let headerContent = `<!DOCTYPE html>
 <html lang="en">
@@ -92,26 +92,32 @@ gulp.task('generate-links', function() {
         if (filename.startsWith('nav_') && filename.endsWith('.html')) {
             if (filename.includes('trad')) navTraditional += link;
             else if (filename.includes('modern')) navModern += link;
+            else if (filename.includes('default')) navDefault += link;
             else navOther += link; 
         } else if (filename.startsWith('hero_') && filename.endsWith('.html')) {
             if (filename.includes('trad')) heroTraditional += link;
             else if (filename.includes('modern')) heroModern += link;
+            else if (filename.includes('default')) heroDefault += link;
             else heroOther += link; 
         } else if (filename.startsWith('prd_') && filename.endsWith('.html')) {
             if (filename.includes('trad')) prdTraditional += link;
             else if (filename.includes('modern')) prdModern += link;
+            else if (filename.includes('default')) prdDefault += link;
             else prdOther += link; 
         } else if (filename.startsWith('form_') && filename.endsWith('.html')) {
             if (filename.includes('trad')) formTraditional += link;
             else if (filename.includes('modern')) formModern += link;
+            else if (filename.includes('default')) formDefault += link;
             else formOther += link; 
         } else if (filename.startsWith('div_') && filename.endsWith('.html')) {
             if (filename.includes('trad')) dividerTraditional += link;
             else if (filename.includes('modern')) dividerModern += link;
+            else if (filename.includes('default')) dividerDefault += link;
             else dividerOther += link; 
         } else if (filename.startsWith('foot_') && filename.endsWith('.html')) {
             if (filename.includes('trad')) footerTraditional += link;
             else if (filename.includes('modern')) footerModern += link;
+            else if (filename.includes('default')) footerDefault += link;
             else footerOther += link; 
         }
     });
