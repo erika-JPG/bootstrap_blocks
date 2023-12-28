@@ -7,7 +7,7 @@ var data = {
     csEmail: "help@murzap-direct.com",
     siteUrl: "VitalityZenith.club",
     billingDescriptor: "Billing 123Co",
-    brandName: "Your Brand",
+    brandName: "Skyline Ventures",
     csPhone: "+1 844-203-8553",
     "campaign-id": "375",
     themeCards: "visa mc disco amex ppal gpay apay",
@@ -67,7 +67,10 @@ var data = {
             price: "1.11", 
             defaultImage: {
                 url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/acv-bottle-1.png'
-            }
+            },
+            shortDescription: "Short Produc Description: The advanced keto supplement may help support weight loss and may help promote ketosis when taken daily. ",
+            longDescription: "Long Product Description: Item Form: Capsule | Age Range: Adult | QTY: 1 Bottle | Capsules: 60",
+            terms: "Special Sales Terms: With this membership, you gain access to our exclusive fitness app where you can customize your eating and workout routine. "
 
         },
         "p_2": {

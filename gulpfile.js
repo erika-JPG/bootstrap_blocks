@@ -112,7 +112,6 @@ gulp.task('generate-links', function() {
             generateSectionHtml('Default', section.default) +
             generateSectionHtml('Other', section.other) +
             `</div>\n<!-- End ${section.name} Section -->`;
-        console.log(sectionHtml);
         const regex = new RegExp(`<!-- Start ${section.name} Section -->[\\s\\S]*?<!-- End ${section.name} Section -->`, 'g');
         stream = stream.pipe(replace(regex, sectionHtml));
     });

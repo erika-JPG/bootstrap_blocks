@@ -16,31 +16,28 @@
         <body>
 <section>
   <div class="container">
-    <div class="row">
-      <div class="container py-5">
-        <div class="row justify-content-center align-items-start">
-          <h1 class="text-center mb-5 pb-4 fw-bold">{{slugProduct.name}}</h1>
+        <div class="row justify-content-center align-items-start py-5">
           <div class="col-md-6 py-1 d-flex justify-content-center align-items-center flex-column pb-3">
             <div>
-              <img src="{{slugProduct.otherImages.0.url}}" class="img-fluid" />
+              <img src="{{sf-product.p_1.defaultImage.url}}" class="img-fluid" />
             </div>
           </div>
           <div class="col-md-6 py-1">
-            <form method="post" data-gjs-type="Shopping Cart Add Item Form" data-gjs-sf-plugin-type="add" data-gjs-sf-product="{{slugProduct.id}}" data-gjs-sf-route="checkout" class="sf-qty-form">
-              <p id="iv26o" class="h2 fw-bold">{{slugProduct.name}}</p>
-              <p class="small lead fw-bold">${{slugProduct.price}}</p>
-              <p class="lead">{{slugProduct.shortDescription}}</p>
+            <form method="post" data-gjs-type="Shopping Cart Add Item Form" data-gjs-sf-plugin-type="add" data-gjs-sf-product="{{sf-product.p_1.id}}" data-gjs-sf-route="checkout" class="sf-qty-form">
+              <input type="hidden" name="quantity" value="1" min="1" />
+              <p class="h2 fw-bold">{{sf-product.p_1.name}}</p>
+              <p class="small lead fw-bold">${{sf-product.p_1.price}}</p>
+              <p class="lead">{{sf-product.p_1.shortDescription}}</p>
               <div>
-                <div class="lead">{{slugProduct.longDescription}}</div>
-                <div class="lead py-3 mb-3 border-bottom">{{slugProduct.specialTerms}}</div>
+                <div class="lead py-3 mb-3 border-bottom">{{sf-product.p_1.longDescription}}</div>
               </div>
-              <div class="row justify-content-between align-items-center px-3">
+              <div class="row justify-content-between align-items-center px-3 mt-5">
                 <div class="lead col-12 col-md-4 ps-0 pt-3 pt-lg-0 fw-bold">
-                  <input type="hidden" name="quantity" value="1" min="1" />
+                  
                   <div class="sf-quantity-selector d-flex flex-row">
-                    <div role="button" class="qty-btn decrease-btn bg-light py-2 px-3 border-top rounded-start border-bottom border-start border-theme-500">-</div>
+                    <div role="button" class="decrease-btn bg-light py-2 px-3 border-top rounded-start border-bottom border-start border-theme-500">-</div>
                     <div class="qty-value bg-light py-2 px-3 border border-theme-500 text-center w-40 mw-80">1</div>
-                    <div role="button" class="qty-btn increase-btn bg-light py-2 px-3 border-top border-end border-bottom rounded-end border-theme-500">+</div>
+                    <div role="button" class="increase-btn bg-light py-2 px-3 border-top border-end border-bottom rounded-end border-theme-500">+</div>
                   </div>
                 </div>
               </div>
@@ -53,14 +50,12 @@
               <div class="prd-faq-box">
                 <div class="acdn-content ingrdnt-close"></div>
                 <div class="acdn-content how-toUse-close">
-                  <p class="small fst-italic py-3">{{slugProduct.terms}}</p>
+                  <p class="small fst-italic pb-3">{{sf-product.p_1.terms}}</p>
                 </div>
               </div>
             </form>
           </div>
         </div>
-      </div>
-    </div>
   </div>
 </section></body>
   </script>
