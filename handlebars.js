@@ -60,7 +60,7 @@ var data = {
                 // ... additional products
             ]
         },
-    'sf-error-message': 'This is an error message',
+    'sf-error-message': 'This is a test error message',
     "sf-product": {
         "p_1": {
             name: "Product One",
@@ -147,17 +147,35 @@ var data = {
     });
 
     Handlebars.registerHelper('moment', function (input, format) {
+        if (!format && moment(input, input, true).isValid()) {
+            return moment().format(input);
+        }
         switch (input) {
-            case 'current':
-                return moment().format(format);
             case 'next year':
                 return moment().add(1, 'years').format(format);
             case 'two years':
                 return moment().add(2, 'years').format(format);
+                case 'three years':
+                return moment().add(3, 'years').format(format);
+                case 'four years':
+                return moment().add(4, 'years').format(format);
+                case 'five years':
+                return moment().add(5, 'years').format(format);
+                case 'six years':
+                return moment().add(6, 'years').format(format);
+                case 'seven years':
+                return moment().add(7, 'years').format(format);
+                case 'eight years':
+                return moment().add(8, 'years').format(format);
+                case 'nine years':
+                return moment().add(9, 'years').format(format);
+                case 'ten years':
+                    return moment().add(10, 'years').format(format);
             default:
-                return moment(input).format(format);
+                return moment().format(input);
         }
     });
+    
 
     // Assuming you have fetched your JSON data and parsed it into a variable called 'data'
     var source = document.getElementById('full-template').innerHTML;

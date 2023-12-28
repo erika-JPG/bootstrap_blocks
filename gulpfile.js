@@ -84,7 +84,8 @@ gulp.task('generate-links', function() {
         { type: 'form', name: 'Forms', traditional: '', modern: '', default: '', other: '' },
         { type: 'div', name: 'Dividers', traditional: '', modern: '', default: '', other: '' },
         { type: 'foot', name: 'Footer', traditional: '', modern: '', default: '', other: '' },
-        { type: 'carousel', name:'Carousels', traditional: '', modern: '', default: '', other: '' },
+        { type: 'carousel', name: 'Carousels', traditional: '', modern: '', default: '', other: '' },
+        { type: 'pannel', name:'Pannels', traditional: '', modern: '', default: '', other: '' },
         // ... add other sections here
     ];
 
