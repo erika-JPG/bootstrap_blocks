@@ -2,16 +2,16 @@
 :root {
   --background-image: url("https://wjb1cr.subscribefunnels.com/~cdn/2d9337aa-3f3f-4151-8646-a2ef55a55541/fashion-00006.jpg");
   --font-family: "Open Sans", sans-serif;
-  --theme-color-100: #d4f0c3;
-  --theme-color-100-light: #f1faec;
-  --theme-color-200: #8cf047;
-  --theme-color-200-light: #a9f476;
-  --theme-color-300: #39b808;
-  --theme-color-300-light: #48e90a;
-  --theme-color-400: #267507;
-  --theme-color-400-light: #36a50a;
-  --theme-color-500: #1a4412;
-  --theme-color-500-light: #296c1d;
+  --theme-color-100: #eff0f8;
+  --theme-color-100-light: white;
+  --theme-color-200: #b8a5f9;
+  --theme-color-200-light: #ded5fc;
+  --theme-color-300: #8366f1;
+  --theme-color-300-light: #a995f5;
+  --theme-color-400: #5d47a8;
+  --theme-color-400-light: #7964be;
+  --theme-color-500: #3f2d71;
+  --theme-color-500-light: #533c95;
   --base-color-100: #f3f4f6;
   --base-color-100-light: white;
   --base-color-200: #d1d5db;
@@ -64,11 +64,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-theme-300 {
   background-color: var(--theme-color-300);
-  color: #fff;
+  color: #000;
 }
 .btn-theme-300:hover {
   background-color: var(--theme-color-300-light);
-  color: #fff;
+  color: #000;
 }
 
 .btn-theme-400 {
@@ -77,7 +77,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-theme-400:hover {
   background-color: var(--theme-color-400-light);
-  color: #fff;
+  color: #000;
 }
 
 .btn-theme-500 {
@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-outline-theme-300:hover {
   background-color: var(--theme-color-300);
-  color: #fff;
+  color: #000;
 }
 
 .btn-outline-theme-400 {
@@ -523,27 +523,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .box-shadow-theme-100 {
-  --shadow-color: #d4f0c3;
+  --shadow-color: #eff0f8;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0);
 }
 
 .box-shadow-theme-200 {
-  --shadow-color: #8cf047;
+  --shadow-color: #b8a5f9;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0);
 }
 
 .box-shadow-theme-300 {
-  --shadow-color: #39b808;
+  --shadow-color: #8366f1;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0);
 }
 
 .box-shadow-theme-400 {
-  --shadow-color: #267507;
+  --shadow-color: #5d47a8;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0);
 }
 
 .box-shadow-theme-500 {
-  --shadow-color: #1a4412;
+  --shadow-color: #3f2d71;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0);
 }
 
@@ -1422,52 +1422,52 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .focus\:box-shadow-theme-100:focus {
-  --shadow-color: #d4f0c3;
+  --shadow-color: #eff0f8;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0);
 }
 
 .hover\:box-shadow-theme-100:hover {
-  --shadow-color: #d4f0c3;
+  --shadow-color: #eff0f8;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0) !important;
 }
 
 .focus\:box-shadow-theme-200:focus {
-  --shadow-color: #8cf047;
+  --shadow-color: #b8a5f9;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0);
 }
 
 .hover\:box-shadow-theme-200:hover {
-  --shadow-color: #8cf047;
+  --shadow-color: #b8a5f9;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0) !important;
 }
 
 .focus\:box-shadow-theme-300:focus {
-  --shadow-color: #39b808;
+  --shadow-color: #8366f1;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0);
 }
 
 .hover\:box-shadow-theme-300:hover {
-  --shadow-color: #39b808;
+  --shadow-color: #8366f1;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0) !important;
 }
 
 .focus\:box-shadow-theme-400:focus {
-  --shadow-color: #267507;
+  --shadow-color: #5d47a8;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0);
 }
 
 .hover\:box-shadow-theme-400:hover {
-  --shadow-color: #267507;
+  --shadow-color: #5d47a8;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0) !important;
 }
 
 .focus\:box-shadow-theme-500:focus {
-  --shadow-color: #1a4412;
+  --shadow-color: #3f2d71;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0);
 }
 
 .hover\:box-shadow-theme-500:hover {
-  --shadow-color: #1a4412;
+  --shadow-color: #3f2d71;
   box-shadow: 0 0 0 0px #FFF, 0 0 0 3px var(--shadow-color), 0 0 rgba(0, 0, 0, 0) !important;
 }
 

@@ -63,40 +63,42 @@ var data = {
     'sf-error-message': 'This is a test error message',
     "sf-product": {
         "p_1": {
-            name: "Product One",
+            name: "Product One Name",
             price: "1.11", 
             defaultImage: {
                 url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/acv-bottle-1.png'
             },
             shortDescription: "Short Produc Description: The advanced keto supplement may help support weight loss and may help promote ketosis when taken daily. ",
             longDescription: "Long Product Description: Item Form: Capsule | Age Range: Adult | QTY: 1 Bottle | Capsules: 60",
-            terms: "Special Sales Terms: With this membership, you gain access to our exclusive fitness app where you can customize your eating and workout routine. "
+            terms: "Special Sales Terms: With this membership, you gain access to our exclusive fitness app where you can customize your eating and workout routine. ",
+            category: 'diet'
 
         },
         "p_2": {
-            name: "Product Two",
+            name: "Product Two Name",
             price: "2.22", 
             defaultImage: {
                 url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/diet-bottle-2.png'
             }
+            
         }
         ,
         "p_3": {
-            name: "Product Three",
+            name: "Product Three Name",
             price: "3.33", 
             defaultImage: {
                 url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/acv-bottle-3.png'
             }
         },
         "p_4": {
-            name: "Product Four",
+            name: "Product Four Name",
             price: "4.44", 
             defaultImage: {
                 url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/diet-bottle-4.png'
             }
         },
         "p_5": {
-            name: "Product Five",
+            name: "Product Five Name",
             price: "5.55", 
             defaultImage: {
                 url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/diet-bottle-5.png'
@@ -104,14 +106,14 @@ var data = {
         }
         ,
         "p_6": {
-            name: "Product Six",
+            name: "Product Six Name",
             price: "6.66", 
             defaultImage: {
                 url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/diet-bottle-6.png'
             }
         },
         "p_7": {
-            name: "Product Seven",
+            name: "Product Seven Name",
             price: "7.77", 
             defaultImage: {
                 url: 'https://s3.amazonaws.com/subscribe-funnels-production/assets/fcb2073e-1e99-40ce-a0a3-3c396d7cec6f/diet-bottle-7.png'
