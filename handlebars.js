@@ -10,6 +10,7 @@ var data = {
     brandName: "Skyline Ventures",
     csPhone: "+1 844-203-8553",
     "campaign-id": "375",
+    productName: "Skyrider 3000",
     themeCards: "visa mc disco amex ppal gpay apay",
     settings: "digitalProduct digitalProducts supportSection dynamicTerms ingredients appTerms textBrand ",
     style: "stickyNav pillBtn roundBtn sharpBtn",
